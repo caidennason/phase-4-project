@@ -5,6 +5,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Home from "./Home"
 import Pets from "./Pets"
 import Rescues from "./Rescues"
+import Adopters from "./Adopters"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/pets">Pets</Link></li>
         <li><Link to="rescues">Rescues</Link></li>
+        <li><Link to='adopters'>Adopters</Link></li>
       </ul>
     </nav>
 
@@ -21,6 +23,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/pets" element={<Pets />} />
       <Route path="/rescues" element={<Rescues />} />
+      <Route path="/adopters" element={<Adopters />} />
     </Routes>
     </>
   );
