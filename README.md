@@ -7,7 +7,7 @@
 - Adopter Model
   - Create/Read
 - Pet Model (Joins table)
-  - Full CRUD
+  - Full CRUD?
 - Rescue Model 
   - Create/Read
 - Routes
@@ -28,5 +28,8 @@
 - Full CRUD for all models
 
 // enoch questions
-  1) is there a way to create something without it having a foreign key? i want to make a pet without it belonging to anyone - how can i do that? private params?
+  1) is there a way to create something without it having a foreign key? i want to make a pet without it belonging to anyone - how can i do that? private params? or since it belongs to something, that thing needs to exist before it's made?
   2) is calling my User model Rescue okay? Rescue is the user in this app
+  3) useContext -- can you place that in the component that is reliant on it? ex: get request to pets lives in the pets component? is prop drilling just for whether a user is signed in? 
+
+  1 component needs state, doesnt need context. if mroe than 1, it does.

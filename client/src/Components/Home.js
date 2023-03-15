@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { SignInContext } from '../Context/signedin'
 import Form from 'react-bootstrap/Form'
+// import Button from 'react-bootstrap/Button'
 
 function Home(){
 
@@ -17,8 +18,9 @@ function Home(){
         console.log(e.target.value)
         setPassword(e.target.value)
     }
+    //
 
-    // for signin information
+    // for signin state and context
     const [signIn, setSignIn] = useContext(SignInContext)
     console.log(signIn)
     // 
