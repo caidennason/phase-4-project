@@ -1,12 +1,27 @@
 import React, {useState, useContext} from 'react'
 import { SignInContext } from '../Context/signedin'
-// import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 function Home(){
 
-    const [checkState, setState] = useState(0)
+    // sign in form state
+    const [userName, setUserName] = useState("Username")
+    const [password, setPassword] = useState("Password")
+
+    function handleUsername(e){
+        console.log(e.target.value)
+        setUserName(e.target.value)
+    }
+
+    function handlePassword(e){
+        console.log(e.target.value)
+        setPassword(e.target.value)
+    }
+
+    // for signin information
     const [signIn, setSignIn] = useContext(SignInContext)
     console.log(signIn)
+    // 
 
     function toggle(){
         setSignIn(signIn => !signIn)
@@ -14,10 +29,20 @@ function Home(){
 
     return(
         <div>
-            <h1 onClick={() => setState(Math.random() * 1000)}>Home</h1>
-            <h2>{checkState}</h2>
             <li onClick={toggle}>Hello</li>
-            {/* <Button></Button> */}
+            <Form>
+                <input 
+                type="text"
+                value={userName}
+                onChange={handleUsername}
+                />
+                <input 
+                type="text"
+                value={password}
+                onChange={handlePassword}
+                />
+            </Form>
+            <button>Submit</button>
         </div>
     )
 }

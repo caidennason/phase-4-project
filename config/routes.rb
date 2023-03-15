@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   get '/pets', to: "pet#index"
+  get '/rescues', to: "rescue#index"
+  get '/adopters', to: "adopter#index"
+  
 end
