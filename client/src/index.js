@@ -4,12 +4,15 @@ import './index.css';
 import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
+import { SignInProvider } from './Context/signedin';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <SignInProvider>
     <App />
+    </SignInProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

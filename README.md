@@ -26,3 +26,7 @@
 
 # Stretch
 - Full CRUD for all models
+
+// enoch questions
+  1) is there a way to create something without it having a foreign key? i want to make a pet without it belonging to anyone - how can i do that? private params?
+  2) is calling my User model Rescue okay? Rescue is the user in this app
