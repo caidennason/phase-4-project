@@ -5,13 +5,18 @@ import { SignInContext } from '../Context/signedin'
 function Home(){
 
     const [checkState, setState] = useState(0)
-    const value = useContext(SignInContext)
-    console.log(value)
+    const [signIn, setSignIn] = useContext(SignInContext)
+    console.log(signIn)
+
+    function toggle(){
+        setSignIn(signIn => !signIn)
+    }
 
     return(
         <div>
             <h1 onClick={() => setState(Math.random() * 1000)}>Home</h1>
             <h2>{checkState}</h2>
+            <li onClick={toggle}>Hello</li>
             {/* <Button></Button> */}
         </div>
     )
