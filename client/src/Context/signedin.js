@@ -10,7 +10,6 @@ function SignInProvider({children}){
 
     // for dynamic context, use state
     const [signIn, setSignIn] = useState(false)
-
     const value = [signIn, setSignIn]
 
     return(

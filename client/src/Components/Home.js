@@ -19,25 +19,20 @@ function Home(){
         console.log(e.target.value)
         setPassword(e.target.value)
     }
-    //
 
     // for signin state and context
     const [signIn, setSignIn] = useContext(SignInContext)
     console.log(signIn)
-    // 
-
-    // // for pets state and context
-    // const pets = useContext(PetsContext)
-    // console.log(pets)
-    // //
 
     function toggle(){
         setSignIn(signIn => !signIn)
     }
+    //
 
     return(
         <div>
             <li onClick={toggle}>Hello</li>
+            <p>Welcome to Foster Adopter! Foster Adopter lets you, the rescue, keep track of which animals have been adopted, and by who. You can create a rescue, foster and adopter, and assign a foster to a rescue or adopter. You can also update the information of (choose one).</p>
             <Form>
                 <input 
                 type="text"

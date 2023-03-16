@@ -35,3 +35,4 @@
   1 component needs state, doesnt need context. if mroe than 1, it does.
 
 why won't boot strap work!!!!!!
+is prop drilling having a pet prop in pets, and sending it down to pet card? how can i style wihtout doing that?
