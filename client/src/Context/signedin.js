@@ -1,7 +1,9 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState, useEffect} from 'react'
 
 // create the context object
 const SignInContext = createContext()
+
+// pet context
 
 // create the context provider (component)
 function SignInProvider({children}){
@@ -12,7 +14,7 @@ function SignInProvider({children}){
     const value = [signIn, setSignIn]
 
     return(
-        // when exporting the value, it should be true or false. this will work with logged in rescues because you can set the state to true by setting the value to true
+        // wrap your app in the context
         <SignInContext.Provider value={value}> 
             {children}
         </SignInContext.Provider>

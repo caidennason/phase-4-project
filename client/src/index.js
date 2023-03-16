@@ -5,14 +5,20 @@ import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { SignInProvider } from './Context/signedin';
+import { RescuesProvider } from './Context/RescueContext'
+import { PetsProvider } from './Context/PetsContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <PetsProvider>
     <SignInProvider>
+    <RescuesProvider>
     <App />
+    </RescuesProvider>
     </SignInProvider>
+    </PetsProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/pets', to: "pet#index"
   get '/rescues', to: "rescue#index"
   get '/adopters', to: "adopter#index"
-  
+  get '/pets/:id', to: "pet#show"
+
 end

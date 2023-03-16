@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { SignInContext } from '../Context/signedin'
+import { PetsContext, PetsContextProvider } from '../Context/PetsContext'
 import Form from 'react-bootstrap/Form'
 // import Button from 'react-bootstrap/Button'
 
@@ -24,6 +25,11 @@ function Home(){
     const [signIn, setSignIn] = useContext(SignInContext)
     console.log(signIn)
     // 
+
+    // for pets state and context
+    const pets = useContext(PetsContext)
+    console.log(pets)
+    //
 
     function toggle(){
         setSignIn(signIn => !signIn)
