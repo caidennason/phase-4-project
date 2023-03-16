@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import { PetsContext, submitPets } from '../Context/PetsContext'
+import Button from 'react-bootstrap/Button'
 
 function Pets(){
 
@@ -32,6 +33,8 @@ function Pets(){
         console.log(e.target.value)
     }
 
+    // YOU CAN PASS PETS AS A PROP!! NOT PROP DRILLING!!
+
     return (
         <div>
             {pets.map((p) => {
@@ -56,6 +59,7 @@ function Pets(){
             <button type="submit">Submit</button>
 
             </Form>
+            <Button></Button>
         </div>
     )
 
