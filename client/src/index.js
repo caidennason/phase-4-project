@@ -8,6 +8,7 @@ import { SignInProvider } from './Context/signedin';
 import { RescuesProvider } from './Context/RescueContext'
 import { PetsProvider } from './Context/PetsContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { AdoptersProvider } from './Context/AdopterContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.render(
     <PetsProvider>
     <SignInProvider>
     <RescuesProvider>
+    <AdoptersProvider>
     <App />
+    </AdoptersProvider>
     </RescuesProvider>
     </SignInProvider>
     </PetsProvider>

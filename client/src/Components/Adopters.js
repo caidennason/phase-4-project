@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useContext, useState, useEffect} from 'react'
+import { AdoptersContext } from '../Context/AdopterContext'
 
 function Adopters(){
 
+    const {adopters, setAdopters, loadAdopters} = useContext(AdoptersContext)
+
+    useEffect(() => {
+        loadAdopters()
+    }, [])
+
+    console.log('ayoooo:', adopters)
+
     return(
         <div>
-        <h1>Adopters</h1>
-        <p>Name: </p>
-        <p>Location: </p>
-        <p>Bio: </p>
-        {/* <img src="https://i.imgur.com/9lzRjPi.jpg"/> */}
+        {adopters.map((a) => {
+            return <li>{a.name} - {a.bio}</li>
+        })}
         </div>
     )
 }

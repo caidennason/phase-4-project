@@ -33,3 +33,5 @@
   3) useContext -- can you place that in the component that is reliant on it? ex: get request to pets lives in the pets component? is prop drilling just for whether a user is signed in? 
 
   1 component needs state, doesnt need context. if mroe than 1, it does.
+
+why won't boot strap work!!!!!!

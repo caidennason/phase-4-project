@@ -13,7 +13,9 @@ function Pets(){
 
     return (
         <div>
-
+            {pets.map((p) => {
+                return <li>{p.bio} {p.name} is {p.age}.</li>
+            })}
         </div>
     )
 
