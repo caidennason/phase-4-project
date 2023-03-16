@@ -26,10 +26,10 @@ function Home(){
     console.log(signIn)
     // 
 
-    // for pets state and context
-    const pets = useContext(PetsContext)
-    console.log(pets)
-    //
+    // // for pets state and context
+    // const pets = useContext(PetsContext)
+    // console.log(pets)
+    // //
 
     function toggle(){
         setSignIn(signIn => !signIn)

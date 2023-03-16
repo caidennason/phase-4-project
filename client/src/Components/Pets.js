@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { PetsContext } from '../Context/PetsContext'
 
 function Pets(){
@@ -9,12 +9,10 @@ function Pets(){
         loadPets()
     }, []);
 
-    console.log('plzzzzz:', pets)
-
     return (
         <div>
             {pets.map((p) => {
-                return <li>{p.bio} {p.name} is {p.age}.</li>
+                return <li key={p.id}>{p.bio} {p.name} is {p.age}.</li>
             })}
         </div>
     )

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import { AdoptersContext } from '../Context/AdopterContext'
 
 function Adopters(){
@@ -9,12 +9,10 @@ function Adopters(){
         loadAdopters()
     }, [])
 
-    console.log('ayoooo:', adopters)
-
     return(
         <div>
         {adopters.map((a) => {
-            return <li>{a.name} - {a.bio}</li>
+            return <li key={a.id}>{a.name} - {a.bio}</li>
         })}
         </div>
     )

@@ -10,6 +10,11 @@ class PetController < ApplicationController
         render json: pet
     end
 
+    def create
+        pet = Pet.create!(pet_params)
+        render json: pet, status: :created
+    end
+
     
     private
 

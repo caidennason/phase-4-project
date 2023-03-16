@@ -9,30 +9,6 @@ import Adopters from "./Adopters"
 
 function App() {
 
-  // get pets -- make sure this is reliant on whether or not someone is signed in with useContext
-  // useEffect(() => {
-  //   fetch('/pets')
-  //   .then(res => res.json())
-  //   .then(allPets => console.log('pets:', allPets))
-  // }, [])
-  //
-
-  // get rescues
-  useEffect(() => {
-    fetch('/rescues')
-    .then(res => res.json())
-    .then(allRescues => console.log('rescues:', allRescues))
-  }, [])
-  //
-
-  // get adopters 
-  useEffect(() => {
-    fetch('/adopters')
-    .then(res => res.json())
-    .then(allAdopters => console.log('adopters:', allAdopters))
-  }, [])
-  //
-
   return (
     <>
     <nav>
