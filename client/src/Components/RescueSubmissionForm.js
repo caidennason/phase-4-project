@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { RescuesContext } from '../Context/RescueContext'
@@ -6,7 +6,7 @@ import { RescuesContext } from '../Context/RescueContext'
 function RescueSubmissionForm(){
 
     // Context
-    const { submitRescues, loadRescues } = useContext(RescuesContext)
+    const { submitRescues } = useContext(RescuesContext)
 
     // State
     const [rescueName, setRescueName] = useState('Rescue Name')
