@@ -11,9 +11,7 @@ function Adopters(){
 
     return(
         <div>
-        {adopters.map((a) => {
-            return <li key={a.id}>{a.name} - {a.bio}</li>
-        })}
+       
         </div>
     )
 }

@@ -15,7 +15,7 @@ function Rescues(){
         <div>
             <RescueSubmissionForm />
             {rescues.map((r) => {
-                return <RescueCard r={r}/>
+                return <RescueCard key={r.id} r={r}/>
             })}
         </div>
     )
