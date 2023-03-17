@@ -32,7 +32,7 @@ const PetsProvider = ({children}) => {
         .then(res => res.json())
         .then(pet => addPet(pet))
         // .then(pet => console.log(pet))
-    }
+    };
 
     return(
         // the Provider gives access to the context to it's children

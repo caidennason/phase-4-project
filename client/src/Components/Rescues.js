@@ -1,5 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import { RescuesContext } from '../Context/RescueContext'
+import RescueSubmissionForm from './RescueSubmissionForm';
+import RescueCard from './RescueCard'
 
 function Rescues(){
 
@@ -11,11 +13,10 @@ function Rescues(){
 
     return(
         <div>
-            <h1>Rescues</h1>
+            <RescueSubmissionForm />
             {rescues.map((r) => {
-                return <li key={r.id}>{r.name} is a {r.bio}</li> 
+                return <RescueCard r={r}/>
             })}
-            {/* <img src="https://i.imgur.com/QtfiWe5.png"/> */}
         </div>
     )
 }

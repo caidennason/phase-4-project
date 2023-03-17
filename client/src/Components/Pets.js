@@ -11,6 +11,7 @@ function Pets(){
     // const { pets, submitPets, loadPets} = useContext(PetsContext)
 
     const {loadPets, pets} = useContext(PetsContext)
+
     useEffect(() => {
         loadPets()
     }, []);
@@ -80,7 +81,7 @@ function Pets(){
             })} */}
             <PetSubmissionForm />
             {pets.map((p) => {
-                return <PetCard p={p} />
+                return <PetCard key={p.id} p={p} />
             })}
         </div>
     )

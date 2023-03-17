@@ -8,10 +8,10 @@ function PetSubmissionForm(){
      // Context
      const { pets, submitPets, loadPets} = useContext(PetsContext)
 
-     useEffect(() => {
-         loadPets()
-     }, []);
-     //
+    //  useEffect(() => {
+    //      loadPets()
+    //  }, []);
+    //  //
 
     //  STATE
     const [petName, setPetName] = useState('Pet\'s Name')
