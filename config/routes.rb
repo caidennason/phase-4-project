@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get '/pets/:id', to: "pet#show"
 
   post '/pets', to: "pet#create"
-  post '/rescues', to: "rescue#create"
   post '/adopters', to: "adopter#create"
+
+  post '/signup', to: "rescue#create"
+  post '/login', to: "session#create"
+  post '/logout', to: "session#delete "
 
 end

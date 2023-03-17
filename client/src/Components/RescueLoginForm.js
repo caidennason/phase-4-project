@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { RescuesContext } from '../Context/RescueContext'
 
-function RescueSubmissionForm(){
+function RescueLoginForm(){
 
     // Context
     const { submitRescues } = useContext(RescuesContext)
@@ -13,6 +13,7 @@ function RescueSubmissionForm(){
     const [rescueBio, setRescueBio] = useState('Rescue Bio')
     const [rescueLocation, setRescueLocation] = useState('Rescue Location')
     const [rescueImageUrl, setRescueImageUrl] = useState('Rescue Image URL')
+    const [rescuePassword, setRescuePassword] = useState('Password')
 
     const handleRescueNameChange = (e) => {
         setRescueName(e.target.value)
@@ -34,11 +35,16 @@ function RescueSubmissionForm(){
         console.log(e.target.value)
     }
 
+    const handleRescuePasswordChange = (e) => {
+        setRescuePassword(e.target.value)
+        console.log(e.target.value)
+    }
+
     // POST Rescue
     const handleRescueSubmit = (e) => {
         e.preventDefault()
         console.log('Submitted!')
-        submitRescues({name: rescueName, bio: rescueBio, location: rescueLocation, image_url: rescueImageUrl})
+        submitRescues({name: rescueName, bio: rescueBio, location: rescueLocation, image_url: rescueImageUrl, password: rescuePassword})
     };
 
     return(
@@ -64,10 +70,15 @@ function RescueSubmissionForm(){
                 value={rescueImageUrl}
                 onChange={handleRescueImageUrlChange}
                 />
-                <Button type="submit">Submit</Button>
+                <input
+                type="text"
+                value={rescuePassword}
+                onChange={handleRescuePasswordChange}
+                />
+                <Button type="submit">Sign Up</Button>
             </Form>
         </div>
     )
 }
 
-export default RescueSubmissionForm
+export default RescueLoginForm

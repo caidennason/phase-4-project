@@ -36,3 +36,6 @@
 
 why won't boot strap work!!!!!!
 is prop drilling having a pet prop in pets, and sending it down to pet card? how can i style wihtout doing that?
+
+
+Rescue ID will need to match the pet ID to edit it. How do you make a pet have the rescue ID when it's made? Maybe if Pet.rescue_id = Rescue.id? Soemthing like that? Or just input an ID from listed ID's

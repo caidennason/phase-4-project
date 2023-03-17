@@ -19,7 +19,7 @@ const RescuesProvider = ({ children }) => {
 
     // POST rescues
     const submitRescues = (rescue) => {
-        fetch('/rescues' , {
+        fetch('/signup' , {
             method: 'POST',
             headers: {
                 "Accept": "application/json",

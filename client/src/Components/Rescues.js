@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import { RescuesContext } from '../Context/RescueContext'
-import RescueSubmissionForm from './RescueSubmissionForm';
+import RescueSubmissionForm from './RescueLoginForm';
 import RescueCard from './RescueCard'
 
 function Rescues(){
@@ -13,7 +13,7 @@ function Rescues(){
 
     return(
         <div>
-            <RescueSubmissionForm />
+            {/* <RescueSubmissionForm /> */}
             {rescues.map((r) => {
                 return <RescueCard key={r.id} r={r}/>
             })}
