@@ -22,24 +22,31 @@ function PetSubmissionForm(){
     const handlePetNameChange = (e) => {
         setPetName(e.target.value)
         console.log(e.target.value)
-    }
+    };
     const handlePetBioChange = (e) => {
         setPetBio(e.target.value)
         console.log(e.target.value)
-    }
+    };
     const handlePetAgeChange = (e) => {
         setPetAge(e.target.value)
         console.log(e.target.value)
-    }
+    };
 
     const handlePetImageUrlChange = (e) => {
         setPetImageUrl(e.target.value)
         console.log(e.target.value)
-    }
+    };
+
+    // POST Pet
+    const handlePetSubmit = (e) => {
+        e.preventDefault()
+        console.log('Submitted!')
+        submitPets({name: petName, bio: petBio, age: petAge, image_url: petImageUrl})
+    };
 
     return (
         <div>
-                <Form onSubmit={() => console.log('')}>
+                <Form onSubmit={handlePetSubmit}>
                 <input 
                 type="text"
                 value={petName}
