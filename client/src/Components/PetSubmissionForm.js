@@ -1,8 +1,17 @@
-import React, {useState, useContext} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form'
+import { PetsContext } from '../Context/PetsContext'
 import Button from 'react-bootstrap/Button'
 
 function PetSubmissionForm(){
+
+     // Context
+     const { pets, submitPets, loadPets} = useContext(PetsContext)
+
+     useEffect(() => {
+         loadPets()
+     }, []);
+     //
 
     //  STATE
     const [petName, setPetName] = useState('Pet\'s Name')
@@ -30,8 +39,7 @@ function PetSubmissionForm(){
 
     return (
         <div>
-
-<Form onSubmit={() => console.log('')}>
+                <Form onSubmit={() => console.log('')}>
                 <input 
                 type="text"
                 value={petName}
@@ -52,10 +60,8 @@ function PetSubmissionForm(){
                 value={petImageUrl}
                 onChange={handlePetImageUrlChange}
                 />
-            <Button type="submit">Submit</Button>
-
-            </Form>
-
+                <Button type="submit">Submit</Button>
+                </Form>
         </div>
     )
 }

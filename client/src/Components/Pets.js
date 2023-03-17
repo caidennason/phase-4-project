@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import { PetsContext } from '../Context/PetsContext'
 import Button from 'react-bootstrap/Button'
 import PetSubmissionForm from './PetSubmissionForm'
+import PetCard from './PetCard'
 
 function Pets(){
 
@@ -49,9 +50,9 @@ function Pets(){
 
     return (
         <div>
-            {pets.map((p) => {
+            {/* {pets.map((p) => {
                 return <li key={p.id}>{p.bio} {p.name} is {p.age}.</li>
-            })}
+            })} */}
             <Form onSubmit={handlePetSubmit}>
                 <input 
                 type="text"
@@ -76,6 +77,9 @@ function Pets(){
             <Button type="submit">Submit</Button>
 
             </Form>
+            {pets.map((p) => {
+                return <PetCard p={p}/>
+            })}
             {/* <PetSubmissionForm /> */}
         </div>
     )
