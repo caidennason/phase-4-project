@@ -35,6 +35,10 @@ function AdopterSubmissionForm(){
         e.preventDefault()
         console.log('submitted!')
         submitAdopters({name: adopterName, bio: adopterBio, location: adopterLocation, image_url: adopterImageUrl})
+        setAdopterName('Adopter Name')
+        setAdopterBio('Adopter Bio')
+        setAdopterLocation('Adopter Location')
+        setAdopterImageUrl('Adopter Image URL')
     }
 
     return(
