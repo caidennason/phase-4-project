@@ -31,8 +31,22 @@ const RescuesProvider = ({ children }) => {
         .then(rescue => addRescue(rescue))
     };
 
+    // POST for login
+    const logIn = (rescue) => {
+        fetch('/login', { 
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(rescue)
+        })
+        .then(res => res.json())
+        .then(rescue => console.log(rescue))
+    }
+
     return (
-    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues} }>
+    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn} }>
         {children}
     </RescuesContext.Provider>
     );
