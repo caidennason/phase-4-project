@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/adopters', to: "adopter#index"
   get '/pets/:id', to: "pet#show"
 
+  delete '/pets/:id', to: "pet#delete"
+
   post '/pets', to: "pet#create"
   post '/adopters', to: "adopter#create"
 

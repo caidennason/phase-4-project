@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { PetsContext } from '../Context/PetsContext'
 
 function PetCard({p}){
+
+    const {setPets, pets} = useContext(PetsContext)
+
+    // DELETE pets request
+    const deletePets = (pet) => {
+        fetch(`/pets/${p.id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then((r) => handleDeletePet(r))
+        // .then((r) => console.log(r))
+    }
+    // DELETE pets handler
+    const handleDeletePet = (deletedPet) => {
+        const remainingPets = pets.filter((pet) => pet.id !== deletedPet.id)
+        console.log(deletedPet)
+        setPets(remainingPets)
+    }
 
     return(
         <div>
@@ -10,7 +29,8 @@ function PetCard({p}){
                 <Card.Title className='text-center'>{p.name}</Card.Title>
                 <Card.Img src={p.image_url}/>
                 <Card.Text>{p.bio} {p.name} is {p.age} years old.</Card.Text>
-                <Button></Button>
+                {/* <Button onClick={() => handleDeletePet({p})}>Delete</Button> */}
+                <Button onClick={deletePets}>Delete</Button>
             </Card>
         </div>
     )

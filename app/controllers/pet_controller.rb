@@ -25,6 +25,16 @@ class PetController < ApplicationController
         end
     end
 
+    def delete
+        pet = Pet.find_by(id: params[:id])
+        if pet
+            pet.destroy
+            head :no_content
+        else
+            render json: {error: ["Pet not found"]}, status: :not_found
+        end
+    end
+
     
     private
 

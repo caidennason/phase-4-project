@@ -33,10 +33,23 @@ const PetsProvider = ({children}) => {
         .then(pet => addPet(pet))
         // .then(pet => console.log(pet))
     };
-
+    // delete pet request
+    const deletePets = (pet) => {
+        fetch('/pets', {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then((data) => handleDeletePet(data))
+    }
+    // delete pet function
+    const handleDeletePet = (deletedPet) => {
+        const remainingPets = pets.filter((p) => p.id !== deletedPet.id)
+        setPets(remainingPets)
+    }
+    console.log(pets)
     return(
         // the Provider gives access to the context to it's children
-        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets} }>
+        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets, deletePets, handleDeletePet} }>
             {children}
         </PetsContext.Provider>
     );

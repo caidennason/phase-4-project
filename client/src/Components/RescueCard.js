@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 
@@ -10,7 +10,7 @@ function RescueCard( {r} ){
                 <Card.Title className="text-center">{r.name}</Card.Title>
                 <Card.Img src={r.image_url}/>
                 <Card.Text>{r.bio} Based in {r.location}.</Card.Text>
-                <Button></Button>
+                <Button>Delete</Button>
             </Card>
         </div>
     )
