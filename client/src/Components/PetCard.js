@@ -8,18 +8,16 @@ function PetCard({p}){
     const {setPets, pets} = useContext(PetsContext)
 
     // DELETE pets request
-    const deletePets = (pet) => {
+    const deletePets = () => {
         fetch(`/pets/${p.id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then((r) => handleDeletePet(r))
-        // .then((r) => console.log(r))
     }
     // DELETE pets handler
     const handleDeletePet = (deletedPet) => {
         const remainingPets = pets.filter((pet) => pet.id !== deletedPet.id)
-        console.log(deletedPet)
         setPets(remainingPets)
     }
 
