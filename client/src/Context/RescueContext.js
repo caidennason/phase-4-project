@@ -42,11 +42,26 @@ const RescuesProvider = ({ children }) => {
             body: JSON.stringify(rescue)
         })
         .then(res => res.json())
+        .then(rescue => setRescues(rescue))
         .then(rescue => console.log(rescue))
     }
 
+    // DELETE for logout
+    const logOut = () => {
+        fetch('/logout' , {
+            method: 'DELETE',
+        })
+        // .then(res => res.json())
+        // .then(rescue => setRescues(null))
+        .then((res) => {
+            if (res.ok) {
+                setRescues(null)
+            }
+        })
+    }
+
     return (
-    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn} }>
+    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut} }>
         {children}
     </RescuesContext.Provider>
     );
