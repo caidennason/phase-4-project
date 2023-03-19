@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
     def create
-        user = Rescue.find_by(username: params[:name])
+        user = Rescue.find_by(name: params[:name])
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, status: :created
@@ -16,6 +16,7 @@ class SessionController < ApplicationController
         else
             render json: { error: "Not authorized" }
         end
+    end
 
         def destroy
             user = Rescue.find_by(id: session[:user_id])
