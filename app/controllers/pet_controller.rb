@@ -10,9 +10,18 @@ class PetController < ApplicationController
         render json: pet
     end
 
+    # def create
+    #     pet = Pet.create!(pet_params)
+    #     render json: pet, status: :created
+    # end
+
     def create
-        pet = Pet.create!(pet_params)
-        render json: pet, status: :created
+        user = Rescue.find_by(id: session[:user_id])
+        if user 
+            pet = user.pets.create(pet_params)
+        else 
+            render json: {errors: ["Not authorized"]}, status: :unauthorized
+        end
     end
 
     
