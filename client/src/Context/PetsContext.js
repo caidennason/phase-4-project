@@ -22,7 +22,7 @@ const PetsProvider = ({children}) => {
     // post pets
     const submitPets = (pet) => {
         fetch('/pets' , {
-            method: 'POST',
+            method: 'POST', 
             headers: {
                 "Accept": "appliation/json",
                 "Content-Type": "application/json"
