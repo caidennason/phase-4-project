@@ -8,11 +8,6 @@ function PetSubmissionForm(){
      // Context
      const { pets, submitPets, loadPets} = useContext(PetsContext)
 
-    //  useEffect(() => {
-    //      loadPets()
-    //  }, []);
-    //  //
-
     //  STATE
     const [petName, setPetName] = useState('Pet\'s Name')
     const [petBio, setPetBio] = useState('Pet\'s Bio')
@@ -21,26 +16,21 @@ function PetSubmissionForm(){
 
     const handlePetNameChange = (e) => {
         setPetName(e.target.value)
-        console.log(e.target.value)
     };
     const handlePetBioChange = (e) => {
         setPetBio(e.target.value)
-        console.log(e.target.value)
     };
     const handlePetAgeChange = (e) => {
         setPetAge(e.target.value)
-        console.log(e.target.value)
     };
 
     const handlePetImageUrlChange = (e) => {
         setPetImageUrl(e.target.value)
-        console.log(e.target.value)
     };
 
     // POST Pet
     const handlePetSubmit = (e) => {
         e.preventDefault()
-        console.log('Submitted!')
         submitPets({name: petName, bio: petBio, age: petAge, image_url: petImageUrl})
     };
 

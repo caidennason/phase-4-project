@@ -29,7 +29,6 @@ class PetController < ApplicationController
         pet = Pet.find_by(id: params[:id])
         if pet
             pet.destroy
-            head :no_content
             render json: { message: "Pet deleted successfully" }, status: :ok
         else
             render json: {error: ["Pet not found"]}, status: :not_found

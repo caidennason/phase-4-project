@@ -13,15 +13,15 @@ import { AdoptersProvider } from './Context/AdopterContext';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <PetsProvider>
     <SignInProvider>
     <RescuesProvider>
     <AdoptersProvider>
+    <PetsProvider>
     <App />
+    </PetsProvider>
     </AdoptersProvider>
     </RescuesProvider>
     </SignInProvider>
-    </PetsProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
