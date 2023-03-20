@@ -31,17 +31,11 @@ const PetsProvider = ({children}) => {
         })
         .then(res => res.json())
         .then(pet => addPet(pet))
-        // .then(pet => console.log(pet))
     };
-
-    function handlePetDelete(r){
-        const remainingPets = pets.filter((pet) => pet.id !== r.id)
-        setPets(remainingPets)
-    }
 
     return(
         // the Provider gives access to the context to it's children
-        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets, handlePetDelete} }>
+        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets} }>
             {children}
         </PetsContext.Provider>
     );
@@ -49,26 +43,3 @@ const PetsProvider = ({children}) => {
 
 // export it so you can grab it in you components files
 export { PetsContext, PetsProvider }
-
-    // delete pet function
-    // const handleDeletePets = (deletedPet) => {
-    //     console.log("Pet deleted:", deletedPet);
-    //     const remainingPets = pets.filter((p) => p.id !== deletedPet.id)
-    //     setPets(remainingPets)
-    //     console.log(remainingPets)
-    // }
-
-    //  // delete pet request
-    //  const deletePets = (pet) => {
-    //     fetch('/pets/', {
-    //         method: 'DELETE'
-    //     })
-    //     .then(res => res.json())
-    //     .then((data) => handleDeletePets(data))
-    // }
-
-    // function handleDeletePets(r){
-    //     const remainingPets = pets.filter((pet) => pet.id !== r.id)
-    //     setPets(remainingPets)
-    //     console.log(remainingPets)
-    // }

@@ -5,7 +5,7 @@ import { PetsContext } from '../Context/PetsContext'
 
 function PetCard({p: {id, name, image_url, bio, age}}){
 
-    const {setPets, pets, handlePetDelete} = useContext(PetsContext)
+    const {setPets, pets} = useContext(PetsContext)
 
     function deletePets(){
         fetch(`pets/${id}`, {
@@ -34,22 +34,3 @@ function PetCard({p: {id, name, image_url, bio, age}}){
 }
 
 export default PetCard
-
-  // DELETE pets request
-    // const deletePets = () => {
-    //     fetch(`/pets/${p.id}`, {
-    //         method: 'DELETE'
-    //     })
-    //     .then(res => res.json())
-    //     .then((r) => handleDeletePet({r}))
-    // }
-    // DELETE pets handler
-    // const handleDeletePet = (deletedPet) => {
-    //     const remainingPets = pets.filter((pet) => pet.id !== deletedPet.id)
-    //     setPets(remainingPets)
-    // }
-    // function handleDeletePet(r){
-    //     const remainingPets = pets.filter((pet) => pet.id !== r.id)
-    //     setPets(remainingPets)
-    //     console.log(remainingPets)
-    // }

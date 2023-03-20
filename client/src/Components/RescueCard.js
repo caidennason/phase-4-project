@@ -1,16 +1,31 @@
-import React from "react"
+import React, { useContext } from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
+import { RescuesContext } from "../Context/RescueContext"
 
-function RescueCard( {r} ){
+function RescueCard( {r: {id, name, image_url, bio, location}} ){
+
+    const {rescues, setRescues} = useContext(RescuesContext)
+
+    const deleteRescue = () => {
+        fetch(`rescues/${id}`, {
+            method: 'DELETE'
+        })
+        handleRescueDelete(id)
+    }
+
+    const handleRescueDelete = (id) => {
+        const remainingRescues = rescues.filter((r) => r.id !== id)
+        setRescues(remainingRescues)
+    }
 
     return (
         <div>
             <Card style={{width: '18rem'}}>
-                <Card.Title className="text-center">{r.name}</Card.Title>
-                <Card.Img src={r.image_url}/>
-                <Card.Text>{r.bio} Based in {r.location}.</Card.Text>
-                <Button>Delete</Button>
+                <Card.Title className="text-center">{name}</Card.Title>
+                <Card.Img src={image_url}/>
+                <Card.Text>{bio} Based in {location}.</Card.Text>
+                <Button onClick={deleteRescue}>Delete</Button>
             </Card>
         </div>
     )
