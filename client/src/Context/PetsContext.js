@@ -14,6 +14,7 @@ const PetsProvider = ({children}) => {
         .then(loadedPets => setPets(loadedPets))
     };
     //
+// 
 
     // add pet
     function addPet(pet){
@@ -31,6 +32,13 @@ const PetsProvider = ({children}) => {
         })
         .then(res => res.json())
         .then(pet => addPet(pet))
+        // .then((res) => {
+        //     if (res.ok) {
+        //         setPets(res)
+        //     } else {
+        //         res.json().then((err) => console.log(err))
+        //     }
+        // })
     };
 
     return(

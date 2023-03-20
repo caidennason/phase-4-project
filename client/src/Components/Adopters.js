@@ -5,7 +5,7 @@ import AdopterCard from './AdopterCard'
 
 function Adopters(){
 
-    const {adopters, setAdopters, loadAdopters} = useContext(AdoptersContext)
+    const {adopters, loadAdopters} = useContext(AdoptersContext)
 
     useEffect(() => {
         loadAdopters()

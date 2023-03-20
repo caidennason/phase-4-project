@@ -1,7 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Form from 'react-bootstrap/Form'
+import React, { useContext, useEffect } from 'react'
 import { PetsContext } from '../Context/PetsContext'
-import Button from 'react-bootstrap/Button'
 import PetSubmissionForm from './PetSubmissionForm'
 import PetCard from './PetCard'
 

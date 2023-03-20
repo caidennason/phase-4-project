@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from 'react'
 import { RescuesContext } from '../Context/RescueContext'
-import RescueSubmissionForm from './RescueLoginForm';
 import RescueCard from './RescueCard'
 
 function Rescues(){

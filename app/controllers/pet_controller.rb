@@ -19,7 +19,11 @@ class PetController < ApplicationController
         user = Rescue.find_by(id: session[:user_id])
         if user 
             pet = user.pets.create(pet_params)
-            render json: pet, status: :created
+            if pet.valid?
+                render json: pet, status: :created
+            else
+                render json: {errors: ["Not long enough"]}, status: :unprocessable_entity
+            end
         else 
             render json: {errors: ["Not authorized"]}, status: :unauthorized
         end

@@ -17,27 +17,22 @@ function RescueLoginForm(){
 
     const handleRescueNameChange = (e) => {
         setRescueName(e.target.value)
-        console.log(e.target.value)
     };
 
     const handleRescueBioChange = (e) => {
         setRescueBio(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescueLocationChange = (e) => {
         setRescueLocation(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescueImageUrlChange = (e) => {
         setRescueImageUrl(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescuePasswordChange = (e) => {
         setRescuePassword(e.target.value)
-        console.log(e.target.value)
     }
 
     // POST Rescue
