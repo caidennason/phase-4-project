@@ -41,7 +41,7 @@ const PetsProvider = ({children}) => {
                 // addPet(res)
             } else {
                 // res.json().then((err) => console.log(err))
-                addPet(res)
+                res.json().then((res) => addPet(res))
             }
         })
     };

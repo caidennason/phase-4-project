@@ -30,6 +30,8 @@ class PetController < ApplicationController
     end
 
     def delete
+        # user = Rescue.find_by(id: session[:user_id])
+        # if user
         pet = Pet.find_by(id: params[:id])
         if pet
             pet.destroy
