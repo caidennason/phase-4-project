@@ -12,7 +12,6 @@ function Rescues(){
 
     return(
         <div>
-            {/* <RescueSubmissionForm /> */}
             {rescues.map((r) => {
                 return <RescueCard key={r.id} r={r}/>
             })}
