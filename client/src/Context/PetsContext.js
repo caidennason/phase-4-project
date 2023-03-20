@@ -30,15 +30,20 @@ const PetsProvider = ({children}) => {
             },
             body: JSON.stringify(pet)
         })
-        .then(res => res.json())
-        .then(pet => addPet(pet))
-        // .then((res) => {
-        //     if (res.ok) {
-        //         setPets(res)
-        //     } else {
-        //         res.json().then((err) => console.log(err))
-        //     }
+        // .then(res => res.json())
+        // .then(pet => addPet(pet))
+        // .catch((err) => {
+        //     console.log(err.response, "error")
         // })
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+                // addPet(res)
+            } else {
+                // res.json().then((err) => console.log(err))
+                addPet(res)
+            }
+        })
     };
 
     return(

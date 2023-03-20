@@ -22,10 +22,10 @@ class PetController < ApplicationController
             if pet.valid?
                 render json: pet, status: :created
             else
-                render json: {errors: ["Not long enough"]}, status: :unprocessable_entity
+                render json: {error: "Not long enough"}, status: :unprocessable_entity
             end
         else 
-            render json: {errors: ["Not authorized"]}, status: :unauthorized
+            render json: {error: "Not authorized"}, status: :unauthorized
         end
     end
 
