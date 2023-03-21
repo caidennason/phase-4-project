@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import { PetsContext } from '../Context/PetsContext'
 import EditPet from './EditPet'
 
-function PetCard({p: {id, name, image_url, bio, age}}){
+function PetCard({p, p: {id, name, image_url, bio, age}}){
 
     const {setPets, pets} = useContext(PetsContext)
 
@@ -22,12 +22,23 @@ function PetCard({p: {id, name, image_url, bio, age}}){
         setPets(remainingPets)
     }
 
+    const petRescueName = (p.rescue.name)
+
+    let adopterName 
+    if (p.adopter !== null){
+        adopterName = p.adopter.name
+    } else {
+        adopterName = "No foster yet."
+    }
+
     return(
         <div>
             <Card style={{ width: '18rem' }}>
                 <Card.Title className='text-center'>{name}</Card.Title>
                 <Card.Img src={image_url}/>
                 <Card.Text>{bio} {name} is {age} years old.</Card.Text>
+                <Card.Text>Rescue: {petRescueName}</Card.Text>
+                <Card.Text>Foster: {adopterName}</Card.Text>
                 <Button onClick={deletePets}>Delete</Button>
                 <EditPet id={id}/>
             </Card>

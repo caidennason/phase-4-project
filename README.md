@@ -28,8 +28,7 @@
 - Full CRUD for all models
 
 Morning work
-  Post for adopters
-  Serializer for adopters to show their pets
   More rescues for the pets
   Validations
   setErrors
+  Make sure you can't delete without being signed in

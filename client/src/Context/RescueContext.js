@@ -55,7 +55,7 @@ const RescuesProvider = ({ children }) => {
         // .then(rescue => setRescues(null))
         .then((res) => {
             if (res.ok) {
-                setRescues(null)
+                setRescues(rescues)
             }
         })
     }
