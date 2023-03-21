@@ -5,7 +5,7 @@ import { AdoptersContext } from '../Context/AdopterContext'
 
 function AdopterCard({a, a: {id, name, bio, location}}){
 
-    const {adopters, setAdopters, setAdopterError, adopterError} = useContext(AdoptersContext)
+    const {adopters, setAdopters, setAdopterError} = useContext(AdoptersContext)
 
     const adoptersPets = (a.pets.map((p) => {
         return p.name
