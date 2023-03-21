@@ -4,7 +4,7 @@ import './index.css';
 import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
-import { SignInProvider } from './Context/signedin';
+// import { SignInProvider } from './Context/signedin';
 import { RescuesProvider } from './Context/RescueContext'
 import { PetsProvider } from './Context/PetsContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +13,7 @@ import { AdoptersProvider } from './Context/AdopterContext';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <SignInProvider>
+    {/* <SignInProvider> */}
     <RescuesProvider>
     <AdoptersProvider>
     <PetsProvider>
@@ -21,7 +21,7 @@ ReactDOM.render(
     </PetsProvider>
     </AdoptersProvider>
     </RescuesProvider>
-    </SignInProvider>
+    {/* </SignInProvider> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

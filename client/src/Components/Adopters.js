@@ -14,10 +14,10 @@ function Adopters(){
 
     return(
         <div>
+            <AdopterSubmissionForm />
             {adopters.map((a) => {
                 return <AdopterCard key={a.id} a={a}/>
             })}
-            <AdopterSubmissionForm />
         </div>
     )
 }

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   delete '/pets/:id', to: "pet#delete"
   delete '/rescues/:id', to: "rescue#delete"
+  delete '/adopters/:id', to: "adopter#delete"
 
   post '/pets', to: "pet#create"
   post '/adopters', to: "adopter#create"

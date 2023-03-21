@@ -1,30 +1,30 @@
-import React, {createContext, useState, useEffect} from 'react'
+// import React, {createContext, useState, useEffect} from 'react'
 
-// create the context object
-const SignInContext = createContext()
+// // create the context object
+// const SignInContext = createContext()
 
-// pet context
+// // pet context
 
-// create the context provider (component)
-function SignInProvider({children}){
+// // create the context provider (component)
+// function SignInProvider({children}){
 
-    // for dynamic context, use state
-    const [signIn, setSignIn] = useState(false)
-    const value = [signIn, setSignIn]
+//     // for dynamic context, use state
+//     const [signIn, setSignIn] = useState(false)
+//     const value = [signIn, setSignIn]
 
-    return(
-        // wrap your app in the context
-        <SignInContext.Provider value={value}> 
-            {children}
-        </SignInContext.Provider>
-    )
+//     return(
+//         // wrap your app in the context
+//         <SignInContext.Provider value={value}> 
+//             {children}
+//         </SignInContext.Provider>
+//     )
 
-}
+// }
 
-// export
-export {SignInContext, SignInProvider}
+// // export
+// export {SignInContext, SignInProvider}
 
-// wrap the app in the component
-// <SignInProvider>
-    // <App /> 
-// </SignInProvider>
+// // wrap the app in the component
+// // <SignInProvider>
+//     // <App /> 
+// // </SignInProvider>

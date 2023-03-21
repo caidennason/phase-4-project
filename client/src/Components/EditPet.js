@@ -11,6 +11,7 @@ function EditPet({id}){
     const [petBioUpdate, setPetBioUpdate] = useState('Update Pet Bio')
     const [petAgeUpdate, setPetAgeUpdate] = useState('Update Pet Age')
     const [petRescueUpdate, setPetRescueUpdate] = useState('Update Pet Rescue')
+    const [petAdopterUpdate, setPetAdopterUpdate] = useState('Update Pet Adopter')
 
     const handlePetNameUpdate = (e) => {
         console.log(e.target.value)
@@ -32,6 +33,11 @@ function EditPet({id}){
         setPetRescueUpdate(e.target.value)
     }
 
+    const handlePetAdopterUpdate = (e) => {
+        console.log(e.target.value)
+        setPetAdopterUpdate(e.target.value)
+    }
+
 
     const updatePet = (e) => { // get id from the pet component
         e.preventDefault()
@@ -44,7 +50,8 @@ function EditPet({id}){
                 name: petNameUpdate,
                 bio: petBioUpdate,
                 age: petAgeUpdate,
-                rescue_id: petRescueUpdate
+                rescue_id: petRescueUpdate,
+                adopter_id: petAdopterUpdate
             }),
         })
             .then((res) => {
@@ -90,7 +97,12 @@ function EditPet({id}){
             value={petRescueUpdate}
             onChange={handlePetRescueUpdate}
             />
-            <Button type="submit">Submit</Button>
+            <input
+            type="text"
+            value={petAdopterUpdate}
+            onChange={handlePetAdopterUpdate}
+            />
+            <Button type="submit">Update</Button>
         </Form>
     )
 }

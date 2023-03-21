@@ -16,7 +16,7 @@ function Rescues(){
 
     return(
         <div>
-            {rescues && rescues.map((r) => {
+            {rescues.map((r) => {
                 return <RescueCard key={r.id} r={r} />
             })}
         </div>
