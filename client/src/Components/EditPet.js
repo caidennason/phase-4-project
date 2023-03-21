@@ -5,7 +5,7 @@ import { PetsContext } from '../Context/PetsContext';
 
 function EditPet({id}){
 
-    const {pets, setPets} = useContext(PetsContext)
+    const {pets, setPets, setPetError} = useContext(PetsContext)
 
     const [petNameUpdate, setPetNameUpdate] = useState('Update Pet Name')
     const [petBioUpdate, setPetBioUpdate] = useState('Update Pet Bio')
@@ -14,27 +14,22 @@ function EditPet({id}){
     const [petAdopterUpdate, setPetAdopterUpdate] = useState('Update Pet Adopter')
 
     const handlePetNameUpdate = (e) => {
-        console.log(e.target.value)
         setPetNameUpdate(e.target.value)
     }
 
     const handlePetBioUpdate = (e) => {
-        console.log(e.target.value)
         setPetBioUpdate(e.target.value)
     }
 
     const handlePetAgeUpdate = (e) => {
-        console.log(e.target.value)
         setPetAgeUpdate(e.target.value)
     }
 
     const handlePetRescueUpdate = (e) => {
-        console.log(e.target.value)
         setPetRescueUpdate(e.target.value)
     }
 
     const handlePetAdopterUpdate = (e) => {
-        console.log(e.target.value)
         setPetAdopterUpdate(e.target.value)
     }
 
@@ -56,7 +51,7 @@ function EditPet({id}){
         })
             .then((res) => {
                 if (!res.ok) {
-                    res.json().then((err) => console.log(err))
+                    res.json().then((err) => setPetError(err.error))
                 } else {
                     res.json().then((updatedPetObj) => handleUpdatePet(updatedPetObj))
                 }

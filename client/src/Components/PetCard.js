@@ -6,7 +6,7 @@ import EditPet from './EditPet'
 
 function PetCard({p, p: {id, name, image_url, bio, age}}){
 
-    const {setPets, pets, petError} = useContext(PetsContext)
+    const {setPets, pets, setPetError} = useContext(PetsContext)
 
     function deletePets(){
         fetch(`pets/${id}`, {
@@ -16,7 +16,7 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         // .then((res) => console.log(res))
         .then((res) => {
             if (!res.ok) {
-                res.json().then((err) => console.log(err))
+                res.json().then((err) => setPetError(err.error))
             } else {
                 res.json().then((res) => console.log(res))
                 handleDeletePet(id)
@@ -24,7 +24,7 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         })
     }
 
-    
+
     function handleDeletePet(id){
         const remainingPets = pets.filter((p) => p.id !== id)
         setPets(remainingPets)

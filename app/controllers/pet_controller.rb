@@ -35,7 +35,7 @@ class PetController < ApplicationController
             render json: {error: ["Pet not found"]}, status: :not_found
         end
     else
-        render json: {error: "Not authorized"}, status: :unauthorized
+        render json: {error: "ERROR: Not authorized. Must sign in to delete pet, or delete the pet your rescue is responsible for."}, status: :unauthorized
     end
     end
 
@@ -50,7 +50,7 @@ class PetController < ApplicationController
                 render json: { error: ["Pet not found."]}, status: :not_found
             end
         else
-            render json: {error: "Not authorized"}, status: :unauthorized
+            render json: {error: "ERROR: Not authorized. Must sign in to update, or update the pet your rescue is responsible for."}, status: :unauthorized
         end
     end
 
