@@ -28,7 +28,5 @@
 - Full CRUD for all models
 
 Morning work
-  More rescues for the pets
-  Validations
   setErrors
   Make sure you can't delete without being signed in

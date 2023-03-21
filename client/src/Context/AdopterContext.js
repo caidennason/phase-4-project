@@ -26,9 +26,16 @@ const AdoptersProvider = ( {children} ) => {
             },
             body: JSON.stringify(adopter)
         })
-        .then(res => res.json())
-        .then(adopter => addAdopter(adopter))
-    }
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+            } else {
+                res.json().then((res) => addAdopter(res))
+            }
+        })
+        // .then(res => res.json())
+        // .then(adopter => addAdopter(adopter))
+    };
 
     return (
         <AdoptersContext.Provider value={{ adopters, setAdopters, loadAdopters, submitAdopters }}>

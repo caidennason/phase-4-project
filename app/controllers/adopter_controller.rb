@@ -6,8 +6,20 @@ class AdopterController < ApplicationController
     end
 
     def create
-        adopter = Adopter.create!(adopter_params)
-        render json: adopter
+        user = Rescue.find_by(id: session[:user_id])
+        if user.nil?
+            render json: {error: "Not authorized."}, status: :unauthorized
+            return
+        end
+            adopter = Adopter.create!(adopter_params)
+            if adopter.valid?
+                render json: adopter, status: :ok
+            else
+                render json: {error: 'Not long enough'}, status: :unprocessable_entity 
+            end
+        # else
+        #     render json: {error: "Not authorized"}, status: :unauthorized
+        # end
     end
 
     def delete 
