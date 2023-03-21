@@ -2,7 +2,7 @@ class RescueController < ApplicationController
 
     def index
         rescues = Rescue.all
-        render json: rescues
+        render json: rescues, include: :pets
     end
 
     def create

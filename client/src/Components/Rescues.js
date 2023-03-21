@@ -13,7 +13,8 @@ function Rescues(){
     return(
         <div>
             {rescues.map((r) => {
-                return <RescueCard key={r.id} r={r}/>
+                // console.log(r.pets.map((p) => p.name))
+                return <RescueCard key={r.id} r={r} />
             })}
         </div>
     )

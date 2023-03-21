@@ -4,6 +4,7 @@ const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
     const [rescues, setRescues] = useState([])
+    console.log(rescues)
 
     // GET rescues
     const loadRescues = () => {
