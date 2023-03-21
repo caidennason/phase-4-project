@@ -6,7 +6,7 @@ import EditPet from './EditPet'
 
 function PetCard({p, p: {id, name, image_url, bio, age}}){
 
-    const {setPets, pets} = useContext(PetsContext)
+    const {setPets, pets, petError} = useContext(PetsContext)
 
     function deletePets(){
         fetch(`pets/${id}`, {
@@ -24,6 +24,7 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         })
     }
 
+    
     function handleDeletePet(id){
         const remainingPets = pets.filter((p) => p.id !== id)
         setPets(remainingPets)

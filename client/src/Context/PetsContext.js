@@ -6,6 +6,7 @@ const PetsContext = createContext(null);
 const PetsProvider = ({children}) => {
     // value that is given to the context
     const [pets, setPets] = useState([]);
+    const [petError, setPetError] = useState(null)
 
       // get pets
         const loadPets = () => {
@@ -14,7 +15,6 @@ const PetsProvider = ({children}) => {
         .then(loadedPets => setPets(loadedPets))
     };
     //
-// 
 
     // add pet
     function addPet(pet){
@@ -32,7 +32,7 @@ const PetsProvider = ({children}) => {
         })
         .then((res) => {
             if (!res.ok) {
-                res.json().then((err) => console.log(err))
+                res.json().then((err) => setPetError(err.error))
             } else {
                 res.json().then((res) => addPet(res))
             }
@@ -41,7 +41,7 @@ const PetsProvider = ({children}) => {
 
     return(
         // the Provider gives access to the context to it's children
-        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets} }>
+        <PetsContext.Provider value={ {pets, loadPets, setPets, submitPets, petError, setPetError} }>
             {children}
         </PetsContext.Provider>
     );

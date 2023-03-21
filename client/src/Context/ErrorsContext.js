@@ -4,9 +4,10 @@ const ErrorsContext = createContext(null)
 
 const ErrorsProvider = ( { children } ) => {
     const [errors, setErrors] = useState([]);
+    
 
     return (
-        <ErrorsContext.Provider> value={{errors, setAdopters}}
+        <ErrorsContext.Provider> value={{errors, setErrors}}
             {children}
         </ErrorsContext.Provider>
     )

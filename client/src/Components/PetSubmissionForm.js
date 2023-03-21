@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 function PetSubmissionForm(){
 
      // Context
-     const { pets, submitPets, loadPets} = useContext(PetsContext)
+     const { pets, submitPets, loadPets, petError} = useContext(PetsContext)
 
     //  STATE
     const [petName, setPetName] = useState('Pet\'s Name')
@@ -36,6 +36,7 @@ function PetSubmissionForm(){
 
     return (
         <div>
+            <p>{petError}</p>
                 <Form onSubmit={handlePetSubmit}>
                 <input 
                 type="text"
