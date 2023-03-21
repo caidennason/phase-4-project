@@ -5,11 +5,15 @@ import PetCard from './PetCard'
 
 function Pets(){
 
-    const {loadPets, pets} = useContext(PetsContext)
+    const {loadPets, pets, rescues} = useContext(PetsContext)
 
     useEffect(() => {
         loadPets()
     }, []);
+
+    // if (!rescues){
+    //     return <div>Loading...</div>
+    // }
 
     return (
         <div>

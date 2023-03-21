@@ -1,10 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
     const [rescues, setRescues] = useState([])
-    console.log(rescues)
 
     // GET rescues
     const loadRescues = () => {
@@ -43,7 +42,7 @@ const RescuesProvider = ({ children }) => {
             body: JSON.stringify(rescue)
         })
         .then(res => res.json())
-        .then(rescue => setRescues(rescue))
+        .then(rescue => setRescues([rescue]))
         .then(rescue => console.log(rescue))
     }
 
@@ -60,6 +59,16 @@ const RescuesProvider = ({ children }) => {
             }
         })
     }
+
+    // GET for auto login
+    useEffect(() => {
+        // auto-login
+        fetch("/me").then((r) => {
+          if (r.ok) {
+            r.json().then((rescue) => setRescues(rescue));
+          }
+        });
+      }, []);
 
     return (
     <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut} }>

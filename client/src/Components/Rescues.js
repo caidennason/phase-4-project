@@ -10,10 +10,13 @@ function Rescues(){
         loadRescues()
     }, []);
 
+    if (!rescues){
+        <div>Is loading...</div>
+    }
+
     return(
         <div>
-            {rescues.map((r) => {
-                // console.log(r.pets.map((p) => p.name))
+            {rescues && rescues.map((r) => {
                 return <RescueCard key={r.id} r={r} />
             })}
         </div>
