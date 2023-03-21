@@ -8,8 +8,6 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
 
     const {rescues, setRescues, rescueError, setRescueError} = useContext(RescuesContext)
 
-    console.log(name)
-
     const deleteRescue = () => {
         fetch(`rescues/${id}`, {
             method: 'DELETE'
