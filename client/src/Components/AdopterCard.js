@@ -21,6 +21,7 @@ function AdopterCard({a, a: {id, name, bio, location}}){
             } else {
                 res.json().then((res) => console.log(res))
                 handleDeleteAdopter(id)
+                setAdopterError(null)
             }
         })
         // handleDeleteAdopter(id)

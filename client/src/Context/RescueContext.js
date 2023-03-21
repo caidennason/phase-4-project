@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
-    const [rescues, setRescues] = useState(null)
+    const [rescues, setRescues] = useState([])
     const [rescueError, setRescueError] = useState(null)
 
     // GET rescues
@@ -62,14 +62,14 @@ const RescuesProvider = ({ children }) => {
     }
 
     // GET for auto login  
-    useEffect(() => {
-        // auto-login -- won't work if you don't set rescues to null when its state is created
-        fetch("/me").then((r) => {
-          if (r.ok) {
-            r.json().then((rescue) => setRescues(rescue));
-          }
-        });
-      }, []);
+    // useEffect(() => {
+    //     // auto-login -- won't work if you don't set rescues to null when its state is created
+    //     fetch("/me").then((r) => {
+    //       if (r.ok) {
+    //         r.json().then((rescue) => setRescues(rescue));
+    //       }
+    //     });
+    //   }, []);
 
     return (
     <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError} }>
