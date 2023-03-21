@@ -28,10 +28,12 @@ class AdopterController < ApplicationController
             adopter = Adopter.find_by(id: params[:id])
             if adopter 
                 adopter.destroy 
-                render json: {message: "Pet deleted successfully"}, status: :ok
+                render json: {message: "Adopter deleted successfully"}, status: :ok
             else 
-                render json: {error: ["Pet not found"]}, status: :not_found
+                render json: {error: ["Adopter not found"]}, status: :not_found
             end
+        else
+            render json: {error: "ERROR: You must sign in."}, status: :unauthorized
         end
     end
 

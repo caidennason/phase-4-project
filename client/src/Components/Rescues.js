@@ -4,7 +4,7 @@ import RescueCard from './RescueCard'
 
 function Rescues(){
 
-    const {rescues, setRescues, loadRescues} = useContext(RescuesContext)
+    const {rescues, setRescues, loadRescues, rescueError} = useContext(RescuesContext)
 
     useEffect(() => {
         loadRescues()
@@ -16,6 +16,7 @@ function Rescues(){
 
     return(
         <div>
+            <p>{rescueError}</p>
             {rescues.map((r) => {
                 return <RescueCard key={r.id} r={r} />
             })}

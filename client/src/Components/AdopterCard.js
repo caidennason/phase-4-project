@@ -5,17 +5,25 @@ import { AdoptersContext } from '../Context/AdopterContext'
 
 function AdopterCard({a, a: {id, name, bio, location}}){
 
-    const {adopters, setAdopters} = useContext(AdoptersContext)
+    const {adopters, setAdopters, setAdopterError, adopterError} = useContext(AdoptersContext)
 
     const adoptersPets = (a.pets.map((p) => {
         return p.name
     }))
 
-    const deleteAdopter = () => {
+    function deleteAdopter(){
         fetch(`/adopters/${id}`, {
-            method: "DELETE"
+            method: 'DELETE'
         })
-        handleDeleteAdopter(id)
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => setAdopterError(err.error))
+            } else {
+                res.json().then((res) => console.log(res))
+                handleDeleteAdopter(id)
+            }
+        })
+        // handleDeleteAdopter(id)
     }
 
     const handleDeleteAdopter = (id) => {

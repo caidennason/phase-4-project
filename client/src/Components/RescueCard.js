@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 
 function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
 
-    const {rescues, setRescues} = useContext(RescuesContext)
+    const {rescues, setRescues, rescueError, setRescueError} = useContext(RescuesContext)
 
     console.log(name)
 
@@ -14,7 +14,15 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
         fetch(`rescues/${id}`, {
             method: 'DELETE'
         })
-        handleRescueDelete(id)
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => setRescueError(err.error))
+            } else {
+                res.json().then((res) => console.log(res))
+                handleRescueDelete(id)
+            }
+        })
+        // handleRescueDelete(id)
     }
 
     const handleRescueDelete = (id) => {

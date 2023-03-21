@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 function AdopterSubmissionForm(){
 
-    const { submitAdopters } = useContext(AdoptersContext)
+    const { submitAdopters, adopterError } = useContext(AdoptersContext)
 
     //State 
     const [adopterName, setAdopterName] = useState('Adopter Name')
@@ -15,34 +15,30 @@ function AdopterSubmissionForm(){
 
     const handleAdopterNameChange = (e) =>{
         setAdopterName(e.target.value)
-        console.log(e.target.value)
     }
     const handleAdopterLocationChange = (e) =>{
         setAdopterLocation(e.target.value)
-        console.log(e.target.value)
     }
     const handleAdopterBioChange = (e) =>{
         setAdopterBio(e.target.value)
-        console.log(e.target.value)
     }
     const handleAdopterImageUrlChange = (e) =>{
         setAdopterImageUrl(e.target.value)
-        console.log(e.target.value)
     }
 
     // POST Adopter
     const handleAdopterSubmit = (e) => {
         e.preventDefault()
-        console.log('submitted!')
         submitAdopters({name: adopterName, bio: adopterBio, location: adopterLocation, image_url: adopterImageUrl})
         setAdopterName('Adopter Name')
         setAdopterBio('Adopter Bio')
         setAdopterLocation('Adopter Location')
         setAdopterImageUrl('Adopter Image URL')
     }
-
+    console.log(adopterError)
     return(
         <div>
+            <p>{adopterError}</p>
             <Form onSubmit={handleAdopterSubmit}>
                 <input
                 type="text"

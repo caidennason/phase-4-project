@@ -4,6 +4,7 @@ const AdoptersContext = createContext(null);
 
 const AdoptersProvider = ( {children} ) => {
     const [adopters, setAdopters] = useState([]);
+    const [adopterError, setAdopterError] = useState(null);
 
     const loadAdopters = () => {
         fetch('/adopters')
@@ -38,7 +39,7 @@ const AdoptersProvider = ( {children} ) => {
     };
 
     return (
-        <AdoptersContext.Provider value={{ adopters, setAdopters, loadAdopters, submitAdopters }}>
+        <AdoptersContext.Provider value={{ adopters, setAdopters, loadAdopters, submitAdopters, adopterError, setAdopterError }}>
             {children}
         </AdoptersContext.Provider>
     );

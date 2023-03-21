@@ -13,17 +13,22 @@ class RescueController < ApplicationController
 
     def show
         resc = Rescue.find_by(id: session[:user_id])
-        render json: user
+        render json: resc
     end
 
     def delete 
-        resc = Rescue.find_by(id: params[:id])
-        if resc
-            resc.destroy 
+        user = Rescue.find_by(id: session[:user_id])
+        if user
+            resc = Rescue.find_by(id: params[:id])
+            if resc
+                resc.destroy 
             # header :no_content
-            render json: {message: 'Rescue successfully deleted'}, status: :ok 
+                render json: {message: 'Rescue successfully deleted'}, status: :ok 
+            else
+                render json: {errors: ["Rescue not found"]}, status: :not_found 
+            end
         else
-            render json: {errors: ["Rescue not found"]}, status: :not_found 
+            render json: {error: "ERROR: Not Authorized. Either sign in, or make sure you are deleting a rescue that belongs to you."}, status: :unauthorized
         end
     end
 

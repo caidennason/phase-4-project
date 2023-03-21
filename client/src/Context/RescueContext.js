@@ -4,6 +4,7 @@ const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
     const [rescues, setRescues] = useState([])
+    const [rescueError, setRescueError] = useState(null)
 
     // GET rescues
     const loadRescues = () => {
@@ -71,7 +72,7 @@ const RescuesProvider = ({ children }) => {
       }, []);
 
     return (
-    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut} }>
+    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError} }>
         {children}
     </RescuesContext.Provider>
     );
