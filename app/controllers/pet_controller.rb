@@ -28,11 +28,11 @@ class PetController < ApplicationController
         user = Rescue.find_by(id: session[:user_id])
         if user
         pet = Pet.find_by(id: params[:id])
-        if pet
+        if pet.rescue_id == user.id
             pet.destroy
             render json: { message: "Pet deleted successfully" }, status: :ok
         else
-            render json: {error: ["Pet not found"]}, status: :not_found
+            render json: {error: ["ERROR: Not authorized. You can only delete pets your rescue is responsible for."]}, status: :unauthorized
         end
     else
         render json: {error: "ERROR: Not authorized. Must sign in to delete pet, or delete the pet your rescue is responsible for."}, status: :unauthorized

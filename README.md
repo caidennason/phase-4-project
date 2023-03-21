@@ -16,7 +16,7 @@
   - Pet
   - Rescue
 - Auth
-  - Rescues are the only ones who can log in and create, edit or delete the data.
+  - Rescues are the only ones who can log in and create, edit or delete the data. Rescues can delete pets that belong to them
 
 - Controllers
   - Adopter
@@ -26,8 +26,4 @@
 
 # Stretch
 - Full CRUD for all models
-
-Morning work
-  setErrors
-  Make sure you can't delete without being signed in
-    Can't delete from the backend but state is setting
+- Better design
