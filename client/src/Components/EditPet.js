@@ -47,8 +47,13 @@ function EditPet({id}){
                 rescue_id: petRescueUpdate
             }),
         })
-            .then((res) => res.json())
-            .then((updatedPetObj) => handleUpdatePet(updatedPetObj))
+            .then((res) => {
+                if (!res.ok) {
+                    res.json().then((err) => console.log(err))
+                } else {
+                    res.json().then((updatedPetObj) => handleUpdatePet(updatedPetObj))
+                }
+            })
     }
 
     const handleUpdatePet = (updatedPet) => {
