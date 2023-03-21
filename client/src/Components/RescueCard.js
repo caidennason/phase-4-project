@@ -8,6 +8,8 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
 
     const {rescues, setRescues} = useContext(RescuesContext)
 
+    console.log(name)
+
     const deleteRescue = () => {
         fetch(`rescues/${id}`, {
             method: 'DELETE'
@@ -31,10 +33,10 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
     return (
         <div>
             <Card style={{width: '18rem'}}>
-                <Card.Title className="text-center">{name}</Card.Title>
+                <Card.Title className="text-center">{name} - ID: {id}</Card.Title>
                 <Card.Img src={r.image_url}/>
                 <Card.Text>{bio} Based in {location}.</Card.Text>
-                <Card.Text>{name} is or has been responsible for: {petNames}.</Card.Text>
+                <Card.Text>{name} is or has been responsible for: {petNames}. Learn more about them at pets!</Card.Text>
                 <Button onClick={deleteRescue}>Delete</Button>
             </Card>
         </div>
