@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/pets', to: "pet#create"
   post '/adopters', to: "adopter#create"
 
+  patch '/pets/:id', to: "pet#update"
+
   post '/signup', to: "rescue#create"
   post '/login', to: "session#create"
   delete '/logout', to: "session#destroy"

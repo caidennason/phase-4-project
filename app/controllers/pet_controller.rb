@@ -10,11 +10,6 @@ class PetController < ApplicationController
         render json: pet
     end
 
-    # def create
-    #     pet = Pet.create!(pet_params)
-    #     render json: pet, status: :created
-    # end
-
     def create
         user = Rescue.find_by(id: session[:user_id])
         if user 
@@ -43,7 +38,16 @@ class PetController < ApplicationController
     end
 
     def update
-
+        user = Rescue.find_by(id: session[:user_id])
+        if user 
+            pet = Pet.find_by(id: params[:id])
+            if pet 
+                pet.update(pet_params)
+                render json: pet, status: :created
+            else
+                render json: { error: ["Pet not found."]}, status: :not_found
+            end
+        end
     end
 
     

@@ -22,10 +22,6 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
         setRescues(remainingRescues)
     }
 
-    console.log(r.pets.map((p) => {
-        console.log(p)
-    }))
-
     const petNames = r.pets.map((p) => {
         return p.name
     }).join(', ')

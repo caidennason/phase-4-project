@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { PetsContext } from '../Context/PetsContext'
+import EditPet from './EditPet'
 
 function PetCard({p: {id, name, image_url, bio, age}}){
 
@@ -28,6 +29,7 @@ function PetCard({p: {id, name, image_url, bio, age}}){
                 <Card.Img src={image_url}/>
                 <Card.Text>{bio} {name} is {age} years old.</Card.Text>
                 <Button onClick={deletePets}>Delete</Button>
+                <EditPet id={id}/>
             </Card>
         </div>
     )
