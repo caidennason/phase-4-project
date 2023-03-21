@@ -34,6 +34,8 @@ class PetController < ApplicationController
         else
             render json: {error: ["Pet not found"]}, status: :not_found
         end
+    else
+        render json: {error: "Not authorized"}, status: :unauthorized
     end
     end
 

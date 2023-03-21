@@ -30,3 +30,4 @@
 Morning work
   setErrors
   Make sure you can't delete without being signed in
+    Can't delete from the backend but state is setting

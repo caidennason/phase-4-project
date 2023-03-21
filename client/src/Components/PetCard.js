@@ -12,9 +12,16 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         fetch(`pets/${id}`, {
             method: 'DELETE'
         })
-        // .then(res => res.json())
-        // .then((r) => handleDeletePet(r))
-        handleDeletePet(id)
+        // .then((r) => r.json())
+        // .then((res) => console.log(res))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+            } else {
+                res.json().then((res) => console.log(res))
+                handleDeletePet(id)
+            }
+        })
     }
 
     function handleDeletePet(id){
