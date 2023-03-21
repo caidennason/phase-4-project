@@ -2,11 +2,10 @@ import React, { useContext } from "react"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import { RescuesContext } from "../Context/RescueContext"
-import ListGroup from 'react-bootstrap/ListGroup'
 
 function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
 
-    const {rescues, setRescues, rescueError, setRescueError} = useContext(RescuesContext)
+    const {rescues, setRescues, setRescueError} = useContext(RescuesContext)
 
     const deleteRescue = () => {
         fetch(`rescues/${id}`, {
@@ -20,7 +19,6 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
                 handleRescueDelete(id)
             }
         })
-        // handleRescueDelete(id)
     }
 
     const handleRescueDelete = (id) => {

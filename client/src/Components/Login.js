@@ -19,7 +19,6 @@ function Login(){
 
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log('Logged in!')
         logIn({name: loginName, password: password})
     }
 

@@ -38,7 +38,6 @@ function RescueLoginForm(){
     // POST Rescue
     const handleRescueSubmit = (e) => {
         e.preventDefault()
-        console.log('Submitted!')
         submitRescues({name: rescueName, bio: rescueBio, location: rescueLocation, image_url: rescueImageUrl, password: rescuePassword})
     };
 

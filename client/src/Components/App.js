@@ -16,7 +16,6 @@ function App() {
 
   const handleLogout = (e) => {
     e.preventDefault()
-    console.log('Logged out')
     logOut()
   }
 
@@ -32,7 +31,6 @@ function App() {
         <li><Link to='login'>Login</Link></li>
       </ul>
     </Navbar>
-{/* <RescuesContext.Provider> */}
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/pets" element={<Pets />} />
@@ -40,7 +38,6 @@ function App() {
       <Route path="/adopters" element={<Adopters />} />
       <Route path="/login" element={<Login /> } />
     </Routes>
-{/* </RescuesContext.Provider> */}
     </>
   );
 }

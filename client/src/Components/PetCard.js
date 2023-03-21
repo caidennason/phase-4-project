@@ -12,8 +12,6 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         fetch(`pets/${id}`, {
             method: 'DELETE'
         })
-        // .then((r) => r.json())
-        // .then((res) => console.log(res))
         .then((res) => {
             if (!res.ok) {
                 res.json().then((err) => setPetError(err.error))
