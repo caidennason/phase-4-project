@@ -28,7 +28,16 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         setPets(remainingPets)
     }
 
-    const petRescueName = (p.rescue.name)
+    // // const petRescueName = (p.rescue.name)
+
+    // console.log(p.rescue)
+
+    let petRescueName
+    if (p.rescue !== null){
+        petRescueName = p.rescue.name
+    } else {
+        petRescueName = "No rescue yet."
+    }
 
     let adopterName 
     if (p.adopter !== null){
