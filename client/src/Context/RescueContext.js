@@ -4,6 +4,7 @@ const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
     const [rescues, setRescues] = useState([])
+    const [currentRescue, setCurrentRescue] = useState(false)
     const [rescueError, setRescueError] = useState(null)
 
     // GET rescues
@@ -43,7 +44,7 @@ const RescuesProvider = ({ children }) => {
             body: JSON.stringify(rescue)
         })
         .then(res => res.json())
-        .then(rescue => setRescues([rescue]))
+        .then(rescue => setCurrentRescue(rescue))
         .then(rescue => console.log(rescue))
     }
 
@@ -56,23 +57,23 @@ const RescuesProvider = ({ children }) => {
         // .then(rescue => setRescues(null))
         .then((res) => {
             if (res.ok) {
-                setRescues(rescues)
+                setCurrentRescue(false)
             }
         })
     }
-
+    console.log(currentRescue)
     // GET for auto login  
-    // useEffect(() => {
-    //     // auto-login -- won't work if you don't set rescues to null when its state is created
-    //     fetch("/me").then((r) => {
-    //       if (r.ok) {
-    //         r.json().then((rescue) => setRescues(rescue));
-    //       }
-    //     });
-    //   }, []);
+    useEffect(() => {
+        // auto-login -- won't work if you don't set rescues to null when its state is created
+        fetch("/me").then((r) => {
+          if (r.ok) {
+            r.json().then((rescue) => setCurrentRescue(rescue)); // enoch: said to have a different state for your rescue login
+          }
+        });
+      }, []);
 
     return (
-    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError} }>
+    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError, currentRescue} }>
         {children}
     </RescuesContext.Provider>
     );
