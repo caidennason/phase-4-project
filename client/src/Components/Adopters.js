@@ -9,15 +9,15 @@ function Adopters(){
 
     const navigate = useNavigate()
     const {adopters, loadAdopters} = useContext(AdoptersContext)
-    const {currentRescue} = useContext(RescuesContext)
+    const {currentRescue, isLoading} = useContext(RescuesContext)
 
     useEffect(() => {
-        if (!currentRescue){
+        if (!currentRescue && !isLoading){
             navigate('/')
         } else {
             loadAdopters()
         }
-    }, [])
+    }, [currentRescue, isLoading])
 
 
     return(

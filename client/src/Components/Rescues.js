@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom'
 function Rescues(){
 
     const navigate = useNavigate()
-    const {rescues, loadRescues, rescueError, currentRescue} = useContext(RescuesContext)
+    const {rescues, loadRescues, rescueError, currentRescue, isLoading} = useContext(RescuesContext)
 
     console.log(currentRescue)
 
     useEffect(() => {
-        if (!currentRescue){
+        if (!currentRescue && !isLoading){
             navigate('/')
         } else {
             loadRescues()
         }
-    }, []);
+    }, [currentRescue, isLoading]);
 
     console.log(rescues)
     return(

@@ -16,12 +16,12 @@ function Pets(){
 
     useEffect(() => {
         // console.log('is this loaded yet?', isLoading)
-        if (!currentRescue){
+        if (!currentRescue && !isLoading){
         navigate('/')
         } else {
             loadPets()
         }
-    }, []);
+    }, [currentRescue, isLoading]);
 
     return (
         <div>
