@@ -1,8 +1,10 @@
 import { createContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RescuesContext = createContext(null);
 
 const RescuesProvider = ({ children }) => {
+    const navigate = useNavigate()
     const [rescues, setRescues] = useState([])
     const [currentRescue, setCurrentRescue] = useState(false)
     const [rescueError, setRescueError] = useState(null)
@@ -49,6 +51,7 @@ const RescuesProvider = ({ children }) => {
                 res.json().then((err) => setRescueError(err.error))
             } else {
                 res.json().then((res) => setCurrentRescue(res))
+                navigate('/')
             }
         })
         // .then(res => res.json())

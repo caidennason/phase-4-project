@@ -2,9 +2,11 @@ import React, { useState, useContext } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { RescuesContext } from '../Context/RescueContext'
+import { useNavigate } from 'react-router-dom'
 
 function Login(){
 
+    const navigate = useNavigate()
     const [loginName, setLoginName] = useState('Rescue Name')
     const [password, setPassword] = useState('Password')
     const {logIn, rescueError, currentRescue} = useContext(RescuesContext)
@@ -22,6 +24,7 @@ function Login(){
         logIn({name: loginName, password: password})
         setLoginName('Rescue Name')
         setPassword('Password')
+        // navigate('/')
     }
 
     let signInError
