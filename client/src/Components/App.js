@@ -11,9 +11,11 @@ import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
+  const navigate = useNavigate()
   const {logOut, currentRescue} = useContext(RescuesContext)
 
   const handleLogout = (e) => {
@@ -38,7 +40,7 @@ function App() {
     <p>{loggedInStatus}</p>
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand style={{color: "peachpuff"}}>Foster Adopter!</Navbar.Brand>
+        <Navbar.Brand style={{color: "peachpuff"}} onClick={() => navigate('/')}>Foster Adopter!</Navbar.Brand>
         <Nav>
         <Nav.Link><Link to="/" style={{color: "white"}}>Home</Link></Nav.Link>
         <Nav.Link><Link to="/pets" style={{color: "white"}}>Pets</Link></Nav.Link>

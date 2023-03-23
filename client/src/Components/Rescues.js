@@ -1,13 +1,21 @@
 import React, {useContext, useEffect} from 'react'
 import { RescuesContext } from '../Context/RescueContext'
 import RescueCard from './RescueCard'
+import { useNavigate } from 'react-router-dom'
 
 function Rescues(){
 
-    const {rescues, loadRescues, rescueError} = useContext(RescuesContext)
+    const navigate = useNavigate()
+    const {rescues, loadRescues, rescueError, currentRescue} = useContext(RescuesContext)
+
+    console.log(currentRescue)
 
     useEffect(() => {
-        loadRescues()
+        if (!currentRescue){
+            navigate('/')
+        } else {
+            loadRescues()
+        }
     }, []);
 
     console.log(rescues)
