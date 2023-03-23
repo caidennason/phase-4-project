@@ -1,8 +1,13 @@
 class PetController < ApplicationController
 
     def index
-        pets = Pet.all
-        render json: pets
+        user = Rescue.find_by(id: session[:user_id])
+        if user
+            pets = Pet.all
+            render json: pets
+        else
+            render json: { error: "Sign in to see the pets"}, status: :unauthorized
+        end
     end
 
     def show

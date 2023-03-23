@@ -2,15 +2,23 @@ import React, {useContext, useEffect} from 'react'
 import { AdoptersContext } from '../Context/AdopterContext'
 import AdopterSubmissionForm from './AdopterSubmissionForm'
 import AdopterCard from './AdopterCard'
+import { RescuesContext } from '../Context/RescueContext'
+import { useNavigate } from 'react-router-dom'
 
 function Adopters(){
 
+    const navigate = useNavigate()
     const {adopters, loadAdopters} = useContext(AdoptersContext)
+    const {currentRescue} = useContext(RescuesContext)
 
     useEffect(() => {
-        loadAdopters()
+        if (!currentRescue){
+            navigate('/')
+        } else {
+            loadAdopters()
+        }
     }, [])
-    console.log(adopters)
+
 
     return(
         <div>

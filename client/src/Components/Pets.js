@@ -11,16 +11,17 @@ function Pets(){
 
 
     const {loadPets, pets} = useContext(PetsContext)
-    const {currentRescue} = useContext(RescuesContext)
-    console.log(currentRescue)
+    const {currentRescue, isLoading} = useContext(RescuesContext)
+    console.log('am i signed in?', currentRescue)
 
     useEffect(() => {
-        if (currentRescue){
-        loadPets() 
+        // console.log('is this loaded yet?', isLoading)
+        if (!currentRescue){
+        navigate('/')
         } else {
-            navigate('/')
+            loadPets()
         }
-    }, [currentRescue]);
+    }, []);
 
     return (
         <div>

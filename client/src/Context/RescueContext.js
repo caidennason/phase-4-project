@@ -6,6 +6,7 @@ const RescuesProvider = ({ children }) => {
     const [rescues, setRescues] = useState([])
     const [currentRescue, setCurrentRescue] = useState(false)
     const [rescueError, setRescueError] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     // GET rescues
     const loadRescues = () => {
@@ -67,13 +68,16 @@ const RescuesProvider = ({ children }) => {
         // auto-login -- won't work if you don't set rescues to null when its state is created
         fetch("/me").then((r) => {
           if (r.ok) {
-            r.json().then((rescue) => setCurrentRescue(rescue)); // enoch: said to have a different state for your rescue login
-          }
-        });
+            r.json().then((rescue) => {
+                setCurrentRescue(rescue);
+                setIsLoading(false) // enoch: said to have a different state for your rescue login
+                });
+            }
+        })
       }, []);
 
     return (
-    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError, currentRescue} }>
+    <RescuesContext.Provider value={ {rescues, setRescues, loadRescues, submitRescues, logIn, logOut, rescueError, setRescueError, currentRescue, isLoading, setIsLoading} }>
         {children}
     </RescuesContext.Provider>
     );
