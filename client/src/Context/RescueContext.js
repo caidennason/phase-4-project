@@ -69,6 +69,7 @@ const RescuesProvider = ({ children }) => {
         .then((res) => {
             if (res.ok) {
                 setCurrentRescue(false)
+                navigate('/')
             }
         })
     }

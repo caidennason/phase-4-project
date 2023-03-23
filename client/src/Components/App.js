@@ -12,7 +12,8 @@ import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import { useNavigate } from 'react-router-dom';
-import Image from 'react-bootstrap/Image'
+import MyRescue from './MyRescue';
+import Figure from 'react-bootstrap/Figure'
 
 function App() {
 
@@ -26,21 +27,29 @@ function App() {
 
   let loggedInStatus
   if (currentRescue){
-      // loggedInStatus = `Signed in as: ${currentRescue.name}!` 
-      loggedInStatus = <p>
-        {`Signed in as: ${currentRescue.name}`} <Image src={currentRescue.image_url} rounded="true" fluid="false"/>
-      </p>
+      loggedInStatus = 
+        <Figure> 
+          <Figure.Image src={currentRescue.image_url}/>
+            <Figure.Caption>{`Signed in as: ${currentRescue.name}`}</Figure.Caption> 
+        </Figure>
   } else {
       loggedInStatus = 'Make sure to sign in to access everything!'
   }
 
-  const logOutButton = <Button onClick={handleLogout}>Logout</Button>
+  let rescueProfile
+  if (currentRescue){
+    rescueProfile =
+    <Nav.Link><Link to="/myrescue" style={{color: "white"}}>My Rescue</Link></Nav.Link>
+  } else {
+    rescueProfile = ''
+  }
+
+  const logOutButton = <Button size ="sm" variant= "dark" onClick={handleLogout}>Logout</Button>
+  const loginLink = <Nav.Link><Link to='login' style={{color: "white"}}>Login</Link></Nav.Link>
   
   return (
     <>
-
     <p>{currentRescue ? logOutButton : ''}</p>
-  
     <p>{loggedInStatus}</p>
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -50,9 +59,8 @@ function App() {
         <Nav.Link><Link to="/pets" style={{color: "white"}}>Pets</Link></Nav.Link>
         <Nav.Link><Link to="rescues" style={{color: "white"}}>Rescues</Link></Nav.Link>
         <Nav.Link><Link to='adopters' style={{color: "white"}}>Adopters</Link></Nav.Link>
-        <Nav.Link><Link to='login' style={{color: "white"}}>Login</Link></Nav.Link>
+        {currentRescue ? rescueProfile : loginLink}
         </Nav>
-      
       </Container>
     </Navbar>
     <Routes>
@@ -61,6 +69,7 @@ function App() {
       <Route path="/rescues" element={<Rescues />} />
       <Route path="/adopters" element={<Adopters />} />
       <Route path="/login" element={<Login /> } />
+      <Route path="myrescue" element={<MyRescue />}/>
     </Routes>
     </>
   );

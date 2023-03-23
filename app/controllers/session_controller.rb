@@ -5,7 +5,7 @@ class SessionController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: {error: "invalid username or password"}, status: :unauthorized
+            render json: {error: "Invalid username or password"}, status: :unauthorized
         end
     end
 
@@ -24,7 +24,7 @@ class SessionController < ApplicationController
             session.delete :user_id 
             head :no_content
         else
-            render json: {errors: ["Not authorized"]}, status: :unauthorized 
+            render json: {error: "Not authorized"}, status: :unauthorized 
         end
     end
 
