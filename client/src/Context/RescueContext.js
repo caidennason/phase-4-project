@@ -44,9 +44,16 @@ const RescuesProvider = ({ children }) => {
             },
             body: JSON.stringify(rescue)
         })
-        .then(res => res.json())
-        .then(rescue => setCurrentRescue(rescue))
-        .then(rescue => console.log(rescue))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => setRescueError(err.error))
+            } else {
+                res.json().then((res) => setCurrentRescue(res))
+            }
+        })
+        // .then(res => res.json())
+        // .then(rescue => setCurrentRescue(rescue))
+        // .then(rescue => console.log(rescue))
     }
 
     // DELETE for logout

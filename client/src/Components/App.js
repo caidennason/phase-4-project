@@ -12,6 +12,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import { useNavigate } from 'react-router-dom';
+import Image from 'react-bootstrap/Image'
 
 function App() {
 
@@ -25,7 +26,10 @@ function App() {
 
   let loggedInStatus
   if (currentRescue){
-      loggedInStatus = `Signed in as: ${currentRescue.name}!`
+      // loggedInStatus = `Signed in as: ${currentRescue.name}!` 
+      loggedInStatus = <p>
+        {`Signed in as: ${currentRescue.name}`} <Image src={currentRescue.image_url} rounded="true" fluid="false"/>
+      </p>
   } else {
       loggedInStatus = 'Make sure to sign in to access everything!'
   }

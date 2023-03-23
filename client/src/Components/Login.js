@@ -7,7 +7,7 @@ function Login(){
 
     const [loginName, setLoginName] = useState('Rescue Name')
     const [password, setPassword] = useState('Password')
-    const {logIn} = useContext(RescuesContext)
+    const {logIn, rescueError, currentRescue} = useContext(RescuesContext)
 
     const handleLoginNameChange = (e) =>{
         setLoginName(e.target.value)
@@ -20,12 +20,23 @@ function Login(){
     const handleLogin = (e) => {
         e.preventDefault()
         logIn({name: loginName, password: password})
+        setLoginName('Rescue Name')
+        setPassword('Password')
     }
+
+    let signInError
+    if (rescueError == null) {
+       signInError  = 'Make sure to use the correct login information!'
+    } else if (rescueError != null) {
+        signInError = `${rescueError}`
+    }
+    console.log(rescueError)
 
     return(
 
 
         <>
+        <p>{signInError}</p>
         <Form onSubmit={handleLogin}>
             <input
             type="text"

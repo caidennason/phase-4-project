@@ -10,6 +10,7 @@ function Adopters(){
     const navigate = useNavigate()
     const {adopters, loadAdopters} = useContext(AdoptersContext)
     const {currentRescue, isLoading} = useContext(RescuesContext)
+    console.log('am i signed in?', currentRescue)
 
     useEffect(() => {
         if (!currentRescue && !isLoading){

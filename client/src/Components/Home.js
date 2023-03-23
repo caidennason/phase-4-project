@@ -19,7 +19,7 @@ function Home(){
         <div>
             <h2>{loggedInStatus}</h2>
             <p>Welcome to Foster Adopter! Foster Adopter lets you, the rescue, keep track of which animals have been adopted, and by who. You can create a rescue, foster and adopter, and assign a foster to a rescue or adopter. You can also update the information of the dogs.</p>
-            <RescueLoginForm />
+            {currentRescue ? <></> : <RescueLoginForm /> }
         </div>
     )
 }

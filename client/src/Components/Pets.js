@@ -8,14 +8,11 @@ import { RescuesContext } from '../Context/RescueContext'
 function Pets(){
 
     const navigate = useNavigate()
-
-
     const {loadPets, pets} = useContext(PetsContext)
     const {currentRescue, isLoading} = useContext(RescuesContext)
     console.log('am i signed in?', currentRescue)
 
     useEffect(() => {
-        // console.log('is this loaded yet?', isLoading)
         if (!currentRescue && !isLoading){
         navigate('/')
         } else {

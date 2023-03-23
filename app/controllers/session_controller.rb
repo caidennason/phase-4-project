@@ -1,11 +1,11 @@
 class SessionController < ApplicationController
     def create
         user = Rescue.find_by(name: params[:name])
-        if user&.authenticate(params[:password])
+        if user && user&.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: {errors: ["invalid username or password"]}, status: :unauthorized
+            render json: {error: "invalid username or password"}, status: :unauthorized
         end
     end
 

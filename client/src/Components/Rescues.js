@@ -8,7 +8,7 @@ function Rescues(){
     const navigate = useNavigate()
     const {rescues, loadRescues, rescueError, currentRescue, isLoading} = useContext(RescuesContext)
 
-    console.log(currentRescue)
+    console.log('am i signed in?', currentRescue)
 
     useEffect(() => {
         if (!currentRescue && !isLoading){

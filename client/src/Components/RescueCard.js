@@ -36,7 +36,7 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
                 <Card.Title className="text-center">{name} - ID: {id}</Card.Title>
                 <Card.Img src={r.image_url}/>
                 <Card.Text>{bio} Based in {location}.</Card.Text>
-                <Card.Text>{name} is or has been responsible for: {petNames.length == 0 ? "no pets ... yet" : petNames}. Learn more about them at pets!</Card.Text>
+                <Card.Text>{name} is responsible for: {petNames.length === 0 ? "no pets ... yet." : petNames + '. Learn more about them at pets!'}</Card.Text>
                 <Button onClick={deleteRescue}>Delete</Button>
             </Card>
         </div>
