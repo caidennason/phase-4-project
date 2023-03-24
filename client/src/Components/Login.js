@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom'
 function Login(){
 
     const navigate = useNavigate()
-    const [loginName, setLoginName] = useState('Rescue Name')
-    const [password, setPassword] = useState('Password')
+    const [loginName, setLoginName] = useState('')
+    const [password, setPassword] = useState('')
     const {logIn, rescueError, currentRescue} = useContext(RescuesContext)
 
     const handleLoginNameChange = (e) =>{
@@ -22,8 +22,8 @@ function Login(){
     const handleLogin = (e) => {
         e.preventDefault()
         logIn({name: loginName, password: password})
-        setLoginName('Rescue Name')
-        setPassword('Password')
+        setLoginName('')
+        setPassword('')
     }
 
     let signInError
@@ -35,8 +35,6 @@ function Login(){
     console.log(rescueError)
 
     return(
-
-
         <>
         <p>{signInError}</p>
         <Form onSubmit={handleLogin}>
@@ -44,11 +42,13 @@ function Login(){
             type="text"
             value={loginName}
             onChange={handleLoginNameChange}
+            placeholder="Rescue Name"
             />
             <input
-            type="text"
+            type="password"
             value={password}
             onChange={handlePasswordChange}
+            placeholder="password"
             />
             <Button type="submit">Login</Button>
         </Form>

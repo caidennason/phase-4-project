@@ -56,9 +56,9 @@ function App() {
         <Navbar.Brand style={{color: "peachpuff"}} onClick={() => navigate('/')}>Foster Adopter!</Navbar.Brand>
         <Nav>
         <Nav.Link><Link to="/" style={{color: "white"}}>Home</Link></Nav.Link>
-        <Nav.Link><Link to="/pets" style={{color: "white"}}>Pets</Link></Nav.Link>
-        <Nav.Link><Link to="rescues" style={{color: "white"}}>Rescues</Link></Nav.Link>
-        <Nav.Link><Link to='adopters' style={{color: "white"}}>Adopters</Link></Nav.Link>
+        {currentRescue ? <Nav.Link><Link to="/pets" style={{color: "white"}}>Pets</Link></Nav.Link> : ''}
+        {currentRescue ? <Nav.Link><Link to="rescues" style={{color: "white"}}>Rescues</Link></Nav.Link> : ''}
+        {currentRescue ? <Nav.Link><Link to='adopters' style={{color: "white"}}>Adopters</Link></Nav.Link> : ''}
         {currentRescue ? rescueProfile : loginLink}
         </Nav>
       </Container>
