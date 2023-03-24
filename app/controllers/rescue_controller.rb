@@ -42,6 +42,6 @@ class RescueController < ApplicationController
 
     private
     def rescue_params
-        params.permit(:name, :bio, :location, :image_url, :password, :pasword_confirmation)
+        params.permit(:name, :bio, :location, :image_url, :password, :password_confirmation)
     end
 end

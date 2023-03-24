@@ -33,7 +33,7 @@ function App() {
             <Figure.Caption>{`Signed in as: ${currentRescue.name}`}</Figure.Caption> 
         </Figure>
   } else {
-      loggedInStatus = 'Welcome to Foster Adopter. Sign in to access your Rescue, Pets and Adopters.'
+      loggedInStatus = 'Welcome to Foster Adopter! Log in to access your Rescue, Pets and Adopters.'
   }
 
   let rescueProfile

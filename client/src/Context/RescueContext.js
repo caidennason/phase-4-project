@@ -46,6 +46,7 @@ const RescuesProvider = ({ children }) => {
                 res.json().then((err) => setRescueError(err.error))
             } else {
                 res.json().then((res) => addRescue(res))
+                setCurrentRescue(res)
                 navigate('/myrescue')
             }
         })
@@ -55,6 +56,7 @@ const RescuesProvider = ({ children }) => {
 
     // POST for login
     const logIn = (rescue) => {
+        console.log('logging in')
         fetch('/login', { 
             method: 'POST',
             headers: {
@@ -67,8 +69,11 @@ const RescuesProvider = ({ children }) => {
             if (!res.ok) {
                 res.json().then((err) => setRescueError(err.error))
             } else {
-                res.json().then((res) => setCurrentRescue(res))
-                navigate('/')
+                res.json().then((res) => {
+                console.log('res', res)
+                setCurrentRescue(res)
+                navigate('/myrescue')
+            })
             }
         })
         // .then(res => res.json())

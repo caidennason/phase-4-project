@@ -4,9 +4,12 @@ import Button from 'react-bootstrap/Button'
 import { RescuesContext } from '../Context/RescueContext'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import { useNavigate } from 'react-router-dom'
 
 function RescueLoginForm(){
 
+
+    const navigate = useNavigate()
     // Context
     const { submitRescues, rescueError } = useContext(RescuesContext)
 
@@ -20,32 +23,26 @@ function RescueLoginForm(){
 
     const handleRescueNameChange = (e) => {
         setRescueName(e.target.value)
-        console.log(e.target.value)
     };
 
     const handleRescueBioChange = (e) => {
         setRescueBio(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescueLocationChange = (e) => {
         setRescueLocation(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescueImageUrlChange = (e) => {
         setRescueImageUrl(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescuePasswordChange = (e) => {
         setRescuePassword(e.target.value)
-        console.log(e.target.value)
     }
 
     const handleRescuePasswordConfirmationChange = (e) => {
         setRescuePasswordConfirmation(e.target.value)
-        console.log(e.target.value)
     }
 
     // POST Rescue
@@ -56,43 +53,74 @@ function RescueLoginForm(){
 
     return(
         <div>
-            <p>{rescueError}</p>
+            <p>{rescueError ? rescueError : ''}</p>
             <Form onSubmit={handleRescueSubmit}>
-                <Form.Group onChange={handleRescueNameChange} value={rescueName}as={Row} className="mb-3" controlId="formHorizontalName">
+                <Form.Group className="mb-3" controlId="formHorizontalName">
                     <Form.Label column-sm={2}>
                         Sign up here!
                     </Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" placeholder="Rescue Name"/>
+                        <Form.Control
+                        name="rescueName" 
+                        type="text"
+                        placeholder="Rescue Name"
+                        onChange={handleRescueNameChange}
+                        value={rescueName}
+                        />
                     </Col>
                 </Form.Group>
 
-                <Form.Group onChange={handleRescueBioChange} value={rescueBio} as={Row} className="mb-3" controlId="formHorizontalBio">
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalBio">
                     <Col sm={10}>
-                        <Form.Control type="text" placeholder="Rescue Bio"/>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Rescue Bio"
+                        onChange={handleRescueBioChange}
+                        value={rescueBio}
+                        />
                     </Col>
                 </Form.Group>
 
-                <Form.Group onChange={handleRescueLocationChange} value={rescueLocation} as={Row} className="mb-3" controlId="formHorizontalLocation">
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalLocation">
                     <Col sm={10}>
-                        <Form.Control type="text" placeholder="Rescue Location"/>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Rescue Location"
+                        onChange={handleRescueLocationChange}
+                        value={rescueLocation}
+                        />
                     </Col>
                 </Form.Group>
 
-                <Form.Group onChange={handleRescueImageUrlChange} value={rescueImageUrl} as={Row} className="mb-3" controlId="formHorizontalImage">
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalImage">
                     <Col sm={10}>
-                        <Form.Control type="text" placeholder="Image Url"/>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Image Url"
+                        onChange={handleRescueImageUrlChange}
+                        value={rescueImageUrl}
+                        />
                     </Col>
                 </Form.Group>
 
-                <Form.Group onChange={handleRescuePasswordChange} value={rescuePassword} as={Row} className="mb-3" controlId="formHorizontalPassword">
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
                     <Col sm={10}>
-                        <Form.Control type="password" placeholder="Password"/>
+                        <Form.Control 
+                        type="password" 
+                        placeholder="Password"
+                        onChange={handleRescuePasswordChange}
+                        value={rescuePassword}
+                        />
                     </Col>
                 </Form.Group>
-                <Form.Group onChange={handleRescuePasswordConfirmationChange} value={rescuePasswordConfirmation} as={Row} className="mb-3" controlId="formHorizontalPasswordConfirmation">
+                <Form.Group as={Row} className="mb-3" controlId="formHorizontalPasswordConfirmation">
                     <Col sm={10}>
-                        <Form.Control type="password" placeholder="Confirm password"/>
+                        <Form.Control
+                        type="password" 
+                        placeholder="Confirm password"
+                        onChange={handleRescuePasswordConfirmationChange}
+                        value={rescuePasswordConfirmation}
+                        />
                     </Col>
                 </Form.Group>
                 <Button type="submit" variant='dark' style={{color:'peachpuff'}}>Sign Up!</Button>
