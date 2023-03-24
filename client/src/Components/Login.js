@@ -24,7 +24,6 @@ function Login(){
         logIn({name: loginName, password: password})
         setLoginName('Rescue Name')
         setPassword('Password')
-        // navigate('/')
     }
 
     let signInError

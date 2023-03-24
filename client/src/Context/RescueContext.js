@@ -9,6 +9,7 @@ const RescuesProvider = ({ children }) => {
     const [currentRescue, setCurrentRescue] = useState(false)
     const [rescueError, setRescueError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    // const [myRescueProfile, setMyRescueProfile] = useState([])
 
     // GET rescues
     const loadRescues = () => {
@@ -16,6 +17,14 @@ const RescuesProvider = ({ children }) => {
         .then(res => res.json())
         .then(loadedRescues => setRescues(loadedRescues))
     };
+
+    // // GET show my rescue
+    // const rescueProfile = () => {
+    //     fetch('/rescues/:id')
+    //     .then(res => res.json())
+    //     .then(resProfile => setMyRescueProfile(resProfile))
+    //     setIsLoading(false)
+    // }
 
     // add rescues
     const addRescue = (rescue) => {
