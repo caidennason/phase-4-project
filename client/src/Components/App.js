@@ -33,7 +33,7 @@ function App() {
             <Figure.Caption>{`Signed in as: ${currentRescue.name}`}</Figure.Caption> 
         </Figure>
   } else {
-      loggedInStatus = 'Make sure to sign in to access everything!'
+      loggedInStatus = 'Welcome to Foster Adopter. Sign in to access your Rescue, Pets and Adopters.'
   }
 
   let rescueProfile
@@ -44,8 +44,8 @@ function App() {
     rescueProfile = ''
   }
 
-  const logOutButton = <Button size ="sm" variant= "dark" onClick={handleLogout}>Logout</Button>
-  const loginLink = <Nav.Link><Link to='login' style={{color: "white"}}>Login</Link></Nav.Link>
+  const logOutButton = <Button size ="sm" variant= "dark" style={{color:'peachpuff'}}onClick={handleLogout}>Logout</Button>
+  const loginLink = <Nav.Link><Link to='login' style={{color: "peachpuff"}}>Login</Link></Nav.Link>
   
   return (
     <>
@@ -55,10 +55,10 @@ function App() {
       <Container>
         <Navbar.Brand style={{color: "peachpuff"}} onClick={() => navigate('/')}>Foster Adopter!</Navbar.Brand>
         <Nav>
-        <Nav.Link><Link to="/" style={{color: "white"}}>Home</Link></Nav.Link>
-        {currentRescue ? <Nav.Link><Link to="/pets" style={{color: "white"}}>Pets</Link></Nav.Link> : ''}
-        {currentRescue ? <Nav.Link><Link to="rescues" style={{color: "white"}}>Rescues</Link></Nav.Link> : ''}
-        {currentRescue ? <Nav.Link><Link to='adopters' style={{color: "white"}}>Adopters</Link></Nav.Link> : ''}
+        <Nav.Link><Link to="/" style={{color: "peachpuff"}}>Home</Link></Nav.Link>
+        {currentRescue ? <Nav.Link><Link to="/pets" style={{color: "peachpuff"}}>Pets</Link></Nav.Link> : ''}
+        {currentRescue ? <Nav.Link><Link to="rescues" style={{color: "peachpuff"}}>Rescues</Link></Nav.Link> : ''}
+        {currentRescue ? <Nav.Link><Link to='adopters' style={{color: "peachpuff"}}>Adopters</Link></Nav.Link> : ''}
         {currentRescue ? rescueProfile : loginLink}
         </Nav>
       </Container>

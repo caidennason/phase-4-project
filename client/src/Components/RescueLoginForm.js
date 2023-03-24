@@ -95,7 +95,7 @@ function RescueLoginForm(){
                         <Form.Control type="password" placeholder="Confirm password"/>
                     </Col>
                 </Form.Group>
-                <Button type="submit">Sign Up!</Button>
+                <Button type="submit" variant='dark' style={{color:'peachpuff'}}>Sign Up!</Button>
             </Form>
         </div>
     )

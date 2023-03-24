@@ -50,7 +50,8 @@ function Login(){
             onChange={handlePasswordChange}
             placeholder="password"
             />
-            <Button type="submit">Login</Button>
+            <br></br>
+            <Button size='sm' variant='dark' style={{color:'peachpuff'}}type="submit">Login</Button>
         </Form>
         </>
     )
