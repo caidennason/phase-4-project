@@ -41,8 +41,16 @@ const RescuesProvider = ({ children }) => {
             },
             body: JSON.stringify(rescue)
         })
-        .then(res => res.json())
-        .then(rescue => addRescue(rescue))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => setRescueError(err.error))
+            } else {
+                res.json().then((res) => addRescue(res))
+                navigate('/myrescue')
+            }
+        })
+        // .then(res => res.json())
+        // .then(rescue => addRescue(rescue))
     };
 
     // POST for login

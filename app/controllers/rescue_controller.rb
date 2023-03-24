@@ -6,9 +6,17 @@ class RescueController < ApplicationController
     end
 
     def create
-        resc = Rescue.create(rescue_params)
-        session[:user_id] = resc.id
-        render json: resc, status: :created
+        if params[:password] == params[:password_confirmation]
+            resc = Rescue.create(rescue_params)
+                if resc.valid?
+                    session[:user_id] = resc.id
+                    render json: resc, status: :created
+                else 
+                    render json: {error: "Make sure all forms are filled out!"}, status: :unprocessable_entity
+                end
+        else
+            render json: {error: "Passwords didn't match"}, status: :unprocessable_entity
+        end
     end
 
     def show

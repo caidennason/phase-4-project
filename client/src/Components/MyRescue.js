@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react'
 import { RescuesContext } from '../Context/RescueContext'
 import Figure from 'react-bootstrap/Figure'
+import Card from 'react-bootstrap/Card'
 
 function MyRescue(){
 
