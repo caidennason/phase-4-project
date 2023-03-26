@@ -34,7 +34,7 @@ function AdopterCard({a, a: {id, name, bio, location}}){
 
     return(
         <Card style={{width: '18rem'}}>
-            <Card.Title>{name}. ID: {id}</Card.Title>
+            <Card.Title>{name}</Card.Title>
             <Card.Img />
             <Card.Text>{bio} {name} currently lives in {location}.</Card.Text>
             <Card.Text>{name} is fostering {adoptersPets}.</Card.Text> 

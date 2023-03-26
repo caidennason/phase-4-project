@@ -32,6 +32,10 @@ function PetSubmissionForm(){
     const handlePetSubmit = (e) => {
         e.preventDefault()
         submitPets({name: petName, bio: petBio, age: petAge, image_url: petImageUrl})
+        setPetName('')
+        setPetBio('')
+        setPetAge('')
+        setPetImageUrl('')
     };
 
     return (

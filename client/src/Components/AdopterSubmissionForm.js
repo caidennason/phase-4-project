@@ -8,10 +8,10 @@ function AdopterSubmissionForm(){
     const { submitAdopters, adopterError } = useContext(AdoptersContext)
 
     //State 
-    const [adopterName, setAdopterName] = useState('Adopter Name')
-    const [adopterLocation, setAdopterLocation] = useState('Adopter Location')
-    const [adopterBio, setAdopterBio] = useState('Adopter Bio')
-    const [adopterImageUrl, setAdopterImageUrl] = useState('Adopter Image URL')
+    const [adopterName, setAdopterName] = useState('')
+    const [adopterLocation, setAdopterLocation] = useState('')
+    const [adopterBio, setAdopterBio] = useState('')
+    const [adopterImageUrl, setAdopterImageUrl] = useState('')
 
     const handleAdopterNameChange = (e) =>{
         setAdopterName(e.target.value)
@@ -30,37 +30,41 @@ function AdopterSubmissionForm(){
     const handleAdopterSubmit = (e) => {
         e.preventDefault()
         submitAdopters({name: adopterName, bio: adopterBio, location: adopterLocation, image_url: adopterImageUrl})
-        setAdopterName('Adopter Name')
-        setAdopterBio('Adopter Bio')
-        setAdopterLocation('Adopter Location')
-        setAdopterImageUrl('Adopter Image URL')
+        setAdopterName('')
+        setAdopterBio('')
+        setAdopterLocation('')
+        setAdopterImageUrl('')
     }
     console.log(adopterError)
     return(
         <div>
-            <p>{adopterError}</p>
+            <p>{adopterError ? adopterError : ''}</p>
             <Form onSubmit={handleAdopterSubmit}>
                 <input
                 type="text"
+                placeholder="Adopter name"
                 value={adopterName}
                 onChange={handleAdopterNameChange}
                 />
                 <input 
                 type="text"
+                placeholder="Adopter bio"
                 value={adopterBio}
                 onChange={handleAdopterBioChange}
                 />
                 <input 
                 type="text"
+                placeholder="Adopter location"
                 value={adopterLocation}
                 onChange={handleAdopterLocationChange}
                 />
                 <input 
                 type="text"
+                placeholder="Adopter image URL"
                 value={adopterImageUrl}
                 onChange={handleAdopterImageUrlChange}
                 />
-                <Button type="submit">Submit</Button>
+                <Button size="sm" variant="dark" style={{color:"peachpuff"}}type="submit">Submit</Button>
             </Form>
 
         </div>
