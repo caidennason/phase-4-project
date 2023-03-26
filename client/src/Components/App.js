@@ -39,7 +39,7 @@ function App() {
   let rescueProfile
   if (currentRescue){
     rescueProfile =
-    <Nav.Link><Link to="/myrescue" style={{color: "white"}}>My Rescue</Link></Nav.Link>
+    <Nav.Link><Link to="/myrescue" style={{color: "peachpuff"}}>My Rescue</Link></Nav.Link>
   } else {
     rescueProfile = ''
   }

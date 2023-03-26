@@ -9,10 +9,10 @@ function PetSubmissionForm(){
      const { pets, submitPets, loadPets, petError} = useContext(PetsContext)
 
     //  STATE
-    const [petName, setPetName] = useState('Pet\'s Name')
-    const [petBio, setPetBio] = useState('Pet\'s Bio')
-    const [petAge, setPetAge] = useState('Pet\'s Age - Integer only') // add error here if it's not
-    const [petImageUrl, setPetImageUrl] = useState('Image URL')
+    const [petName, setPetName] = useState('')
+    const [petBio, setPetBio] = useState('')
+    const [petAge, setPetAge] = useState('')
+    const [petImageUrl, setPetImageUrl] = useState('')
 
     const handlePetNameChange = (e) => {
         setPetName(e.target.value)
@@ -40,25 +40,29 @@ function PetSubmissionForm(){
                 <Form onSubmit={handlePetSubmit}>
                 <input 
                 type="text"
+                placeholder="Pet's name"
                 value={petName}
                 onChange={handlePetNameChange}
                 />
                 <input 
                 type="text"
+                placeholder="Pet's bio"
                 value={petBio}
                 onChange={handlePetBioChange}
                 />
                 <input
                 type="text"
+                placeholder="Pet's age"
                 value={petAge}
                 onChange={handlePetAgeChange}
                 />
                 <input
                 type="text"
+                placeholder="Image URL"
                 value={petImageUrl}
                 onChange={handlePetImageUrlChange}
                 />
-                <Button type="submit">Submit</Button>
+                <Button size="sm"type="submit" style={{color:"peachpuff"}}variant="dark">Submit</Button>
                 </Form>
         </div>
     )

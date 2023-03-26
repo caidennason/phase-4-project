@@ -11,6 +11,7 @@ function Adopters(){
     const {adopters, loadAdopters} = useContext(AdoptersContext)
     const {currentRescue, isLoading} = useContext(RescuesContext)
     console.log('am i signed in?', currentRescue)
+    console.log(adopters)
 
     useEffect(() => {
         if (!currentRescue && !isLoading){

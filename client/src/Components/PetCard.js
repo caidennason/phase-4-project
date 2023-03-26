@@ -28,22 +28,18 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
         setPets(remainingPets)
     }
 
-    // // const petRescueName = (p.rescue.name)
-
-    // console.log(p.rescue)
-
     let petRescueName
     if (p.rescue !== null){
         petRescueName = p.rescue.name
     } else {
-        petRescueName = "No rescue yet."
+        petRescueName = "No rescue ... yet."
     }
 
     let adopterName 
     if (p.adopter !== null){
         adopterName = p.adopter.name
     } else {
-        adopterName = "No foster yet."
+        adopterName = "No foster ... yet."
     }
 
     return(
@@ -54,8 +50,8 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
                 <Card.Text>{bio} {name} is {age} years old.</Card.Text>
                 <Card.Text>Rescue: {petRescueName}</Card.Text>
                 <Card.Text>Foster: {adopterName}</Card.Text>
-                <Button onClick={deletePets}>Delete</Button>
-                <EditPet id={id}/>
+                <Button onClick={deletePets} variant="danger" style={{color:"black"}}>Delete {name}</Button>
+                <EditPet id={id} name={name}/>
             </Card>
         </div>
     )

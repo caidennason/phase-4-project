@@ -2,37 +2,32 @@ import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { PetsContext } from '../Context/PetsContext';
+import Dropdown from 'react-bootstrap/Dropdown';
 
-function EditPet({id}){
+function EditPet({id, name}){
 
     const {pets, setPets, setPetError} = useContext(PetsContext)
-
-    const [petNameUpdate, setPetNameUpdate] = useState('Update Pet Name')
-    const [petBioUpdate, setPetBioUpdate] = useState('Update Pet Bio')
-    const [petAgeUpdate, setPetAgeUpdate] = useState('Update Pet Age')
-    const [petRescueUpdate, setPetRescueUpdate] = useState('Update Pet Rescue')
-    const [petAdopterUpdate, setPetAdopterUpdate] = useState('Update Pet Adopter')
+    const [petNameUpdate, setPetNameUpdate] = useState('')
+    const [petBioUpdate, setPetBioUpdate] = useState('')
+    const [petAgeUpdate, setPetAgeUpdate] = useState('')
+    const [petRescueUpdate, setPetRescueUpdate] = useState('')
+    const [petAdopterUpdate, setPetAdopterUpdate] = useState('')
 
     const handlePetNameUpdate = (e) => {
         setPetNameUpdate(e.target.value)
     }
-
     const handlePetBioUpdate = (e) => {
         setPetBioUpdate(e.target.value)
     }
-
     const handlePetAgeUpdate = (e) => {
         setPetAgeUpdate(e.target.value)
     }
-
     const handlePetRescueUpdate = (e) => {
         setPetRescueUpdate(e.target.value)
     }
-
     const handlePetAdopterUpdate = (e) => {
         setPetAdopterUpdate(e.target.value)
     }
-
 
     const updatePet = (e) => { // get id from the pet component
         e.preventDefault()
@@ -71,34 +66,46 @@ function EditPet({id}){
     }
 
     return(
-        <Form onSubmit={updatePet}>
-            <input
-            type="text"
-            value={petNameUpdate}
-            onChange={handlePetNameUpdate}
-            />
-            <input
-            type="text"
-            value={petBioUpdate}
-            onChange={handlePetBioUpdate}
-            />
-            <input
-            type="text"
-            value={petAgeUpdate}
-            onChange={handlePetAgeUpdate}
-            />
-            <input
-            type="text"
-            value={petRescueUpdate}
-            onChange={handlePetRescueUpdate}
-            />
-            <input
-            type="text"
-            value={petAdopterUpdate}
-            onChange={handlePetAdopterUpdate}
-            />
-            <Button type="submit">Update</Button>
-        </Form>
+        <Dropdown>
+            <Dropdown.Toggle style={{color:"peachpuff"}}variant="dark">
+            Edit {name}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+            <Form onSubmit={updatePet}>
+                <input
+                type="text"
+                placeholder="Edit pet name"
+                value={petNameUpdate}
+                onChange={handlePetNameUpdate}
+                /> 
+                <input
+                type="text"
+                placeholder="Edit pet bio"
+                value={petBioUpdate}
+                onChange={handlePetBioUpdate}
+                /> 
+                <input
+                type="text"
+                placeholder="Edit pet age"
+                value={petAgeUpdate}
+                onChange={handlePetAgeUpdate}
+                /> 
+                <input
+                type="text"
+                placeholder="Edit pet rescue"
+                value={petRescueUpdate}
+                onChange={handlePetRescueUpdate}
+                />
+                <input
+                type="text"
+                placeholder="Edit pet adopter"
+                value={petAdopterUpdate}
+                onChange={handlePetAdopterUpdate}
+                /> 
+                <Button size="sm" variant="dark" style={{color:"peachpuff"}}type="submit">Update</Button>
+            </Form>
+            </Dropdown.Menu>
+        </Dropdown>
     )
 }
 
