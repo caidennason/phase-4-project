@@ -30,15 +30,15 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
         setRescues(remainingRescues)
     }
 
-    const handleLogout = (e) => {
-        logOut()
-    }
+    // const handleLogout = (e) => {
+    //     logOut()
+    // }
 
-    const handleDeleteLogout = (e) => {
-        e.preventDefault()
-        deleteRescue()
-        handleLogout()
-    }
+    // const handleDeleteLogout = (e) => {
+    //     e.preventDefault()
+    //     deleteRescue()
+    //     handleLogout()
+    // }
 
     let petNames = r.pets.map((p) => {
         return p.name
@@ -51,7 +51,7 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
                 <Card.Img src={r.image_url}/>
                 <Card.Text>{bio} Based in {location}.</Card.Text>
                 <Card.Text>{name} is responsible for: {petNames.length === 0 ? "no pets ... yet." : petNames + '. Learn more about them at pets!'}</Card.Text>
-                <Button onClick={handleDeleteLogout}>Delete</Button>
+                <Button onClick={deleteRescue}>Delete</Button>
             </Card>
         </div>
     )

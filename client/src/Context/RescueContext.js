@@ -101,11 +101,11 @@ const RescuesProvider = ({ children }) => {
         // .then(res => res.json())
         // .then(rescue => setRescues(null))
         .then((res) => {
-            if (res.ok) {
+            // if (res.ok) {
                 // setCurrentRescue(false)
                 navigate('/')
                 setCurrentRescue(false)
-            }
+            // }
         })
     }
     console.log(currentRescue)
