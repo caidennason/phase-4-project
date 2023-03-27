@@ -25,6 +25,8 @@ function App() {
     logOut()
   }
 
+  console.log(currentRescue)
+
   let loggedInStatus
   if (currentRescue){
       loggedInStatus = 
@@ -50,7 +52,7 @@ function App() {
   return (
     <>
     <p>{currentRescue ? logOutButton : ''}</p>
-    <p>{loggedInStatus}</p>
+    <p onClick={(() => navigate('/myrescue'))}>{loggedInStatus}</p>
     <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand style={{color: "peachpuff"}} onClick={() => navigate('/')}>Foster Adopter!</Navbar.Brand>

@@ -38,7 +38,7 @@ function AdopterCard({a, a: {id, name, bio, location}}){
             <Card.Img />
             <Card.Text>{bio} {name} currently lives in {location}.</Card.Text>
             <Card.Text>{name} is fostering {adoptersPets}.</Card.Text> 
-            <Button onClick={deleteAdopter}>Delete</Button>
+            <Button size="sm" variant="danger" style={{color:"black"}}onClick={deleteAdopter}>Delete</Button>
         </Card>
     )
 }

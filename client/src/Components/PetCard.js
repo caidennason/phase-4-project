@@ -44,14 +44,16 @@ function PetCard({p, p: {id, name, image_url, bio, age}}){
 
     return(
         <div>
-            <Card style={{ width: '18rem' }}>
+            <br></br>
+            <Card bg="light" style={{ width: '18rem' }}>
                 <Card.Title className='text-center'>{name}</Card.Title>
                 <Card.Img src={image_url}/>
                 <Card.Text>{bio} {name} is {age} years old.</Card.Text>
                 <Card.Text>Rescue: {petRescueName}</Card.Text>
                 <Card.Text>Foster: {adopterName}</Card.Text>
-                <Button onClick={deletePets} variant="danger" style={{color:"black"}}>Delete {name}</Button>
                 <EditPet id={id} name={name}/>
+                <br></br>
+                <Button onClick={deletePets} size="sm" variant="danger" style={{color:"black"}}>Delete {name}</Button>
             </Card>
         </div>
     )

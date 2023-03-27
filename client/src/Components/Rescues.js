@@ -18,10 +18,12 @@ function Rescues(){
         }
     }, [currentRescue, isLoading]);
 
+
+
     console.log(rescues)
     return(
         <div>
-            <p>{rescueError}</p>
+            <p style={{color:"red"}}>{rescueError}</p>
             {rescues.map((r) => {
                 return <RescueCard key={r.id} r={r} />
             })}
