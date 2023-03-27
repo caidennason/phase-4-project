@@ -53,11 +53,13 @@ const RescuesProvider = ({ children }) => {
             if (!res.ok) {
                 res.json().then((err) => setRescueError(err.error))
             } else {
-                res.json().then((res) => addRescue(res))
+                res.json().then((res) => {
+                addRescue(res)
                 setCurrentRescue(res)
                 setRescueError(null)
                 navigate('/myrescue')
-            }
+            })
+        }
         })
         // .then(res => res.json())
         // .then(rescue => addRescue(rescue))
@@ -100,8 +102,9 @@ const RescuesProvider = ({ children }) => {
         // .then(rescue => setRescues(null))
         .then((res) => {
             if (res.ok) {
-                setCurrentRescue(false)
+                // setCurrentRescue(false)
                 navigate('/')
+                setCurrentRescue(false)
             }
         })
     }
