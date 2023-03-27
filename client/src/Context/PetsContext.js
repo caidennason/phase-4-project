@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // create context for PETS
 const PetsContext = createContext(null);
@@ -8,11 +9,21 @@ const PetsProvider = ({children}) => {
     const [pets, setPets] = useState([]);
     const [petError, setPetError] = useState(null)
 
+    const navigate = useNavigate()
+
       // get pets
         const loadPets = () => {
         fetch('/pets')
-        .then(res => res.json())
-        .then(loadedPets => setPets(loadedPets))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+                navigate('/')
+            } else {
+                res.json().then((loadedPets) => setPets(loadedPets))
+            }
+        })
+        // .then(res => res.json())
+        // .then(loadedPets => setPets(loadedPets))
     };
     //
 
@@ -35,6 +46,7 @@ const PetsProvider = ({children}) => {
                 res.json().then((err) => setPetError(err.error))
             } else {
                 res.json().then((res) => addPet(res))
+                setPetError(null)
             }
         })
     };

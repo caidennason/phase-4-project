@@ -40,7 +40,7 @@ function PetSubmissionForm(){
 
     return (
         <div>
-            <p>{petError}</p>
+            <p style={{color:"red"}}>{petError}</p>
                 <Form onSubmit={handlePetSubmit}>
                 <input 
                 type="text"

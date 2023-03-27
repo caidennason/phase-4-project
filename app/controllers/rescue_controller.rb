@@ -1,8 +1,13 @@
 class RescueController < ApplicationController
 
     def index
-        rescues = Rescue.all
-        render json: rescues, include: :pets
+        user = Rescue.find_by(id: session[:user_id])
+        if user
+            rescues = Rescue.all
+            render json: rescues, include: :pets
+        else
+            render json: {error: "ERROR: You must be signed in to view rescues."}
+        end
     end
 
     def create
@@ -12,7 +17,7 @@ class RescueController < ApplicationController
                     session[:user_id] = resc.id
                     render json: resc, status: :created
                 else 
-                    render json: {error: "Make sure all forms are filled out!"}, status: :unprocessable_entity
+                    render json: {error: "ERROR: All forms must be completed."}, status: :unprocessable_entity
                 end
         else
             render json: {error: "Passwords didn't match"}, status: :unprocessable_entity
@@ -28,12 +33,12 @@ class RescueController < ApplicationController
         user = Rescue.find_by(id: session[:user_id])
         if user
             resc = Rescue.find_by(id: params[:id])
-            if resc
+            if resc.id == user.id
                 resc.destroy 
             # header :no_content
                 render json: {message: 'Rescue successfully deleted'}, status: :ok 
             else
-                render json: {errors: ["Rescue not found"]}, status: :not_found 
+                render json: {error: "ERROR: You can only delete your own rescue."}, status: :not_found 
             end
         else
             render json: {error: "ERROR: Not Authorized. Either sign in, or make sure you are deleting a rescue that belongs to you."}, status: :unauthorized

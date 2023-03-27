@@ -14,7 +14,7 @@ class SessionController < ApplicationController
         if user
             render json: user 
         else
-            render json: { error: "Not authorized" }
+            render json: { error: "Not authorized" }, status: :unauthorized
         end
     end
 

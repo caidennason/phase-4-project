@@ -53,7 +53,7 @@ function RescueLoginForm(){
 
     return(
         <div>
-            <p>{rescueError ? rescueError : ''}</p>
+            <p style={{color:"red"}}>{rescueError ? rescueError : ''}</p>
             <Form onSubmit={handleRescueSubmit}>
                 <Form.Group className="mb-3" controlId="formHorizontalName">
                     <Form.Label column-sm={2}>

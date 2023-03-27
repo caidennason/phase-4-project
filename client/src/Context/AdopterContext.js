@@ -32,6 +32,7 @@ const AdoptersProvider = ( {children} ) => {
                 res.json().then((err) => setAdopterError(err.error))
             } else {
                 res.json().then((res) => addAdopter(res))
+                setAdopterError(null)
             }
         })
         // .then(res => res.json())

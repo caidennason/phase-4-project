@@ -47,6 +47,7 @@ const RescuesProvider = ({ children }) => {
             } else {
                 res.json().then((res) => addRescue(res))
                 setCurrentRescue(res)
+                setRescueError(null)
                 navigate('/myrescue')
             }
         })
@@ -72,6 +73,7 @@ const RescuesProvider = ({ children }) => {
                 res.json().then((res) => {
                 console.log('res', res)
                 setCurrentRescue(res)
+                setRescueError(null)
                 navigate('/myrescue')
             })
             }

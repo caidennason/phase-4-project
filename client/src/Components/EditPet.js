@@ -49,6 +49,7 @@ function EditPet({id, name}){
                     res.json().then((err) => setPetError(err.error))
                 } else {
                     res.json().then((updatedPetObj) => handleUpdatePet(updatedPetObj))
+                    setPetError(null)
                 }
             })
     }

@@ -1,8 +1,13 @@
 class AdopterController < ApplicationController
 
     def index
-        adopters = Adopter.all
-        render json: adopters
+        user = Rescue.find_by(id: session[:user_id])
+        if user
+            adopters = Adopter.all
+            render json: adopters
+        else
+            render json: {error: "ERROR: You must sign in to view adopters."}
+        end
     end
 
     # def create

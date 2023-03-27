@@ -38,7 +38,7 @@ function AdopterSubmissionForm(){
     console.log(adopterError)
     return(
         <div>
-            <p>{adopterError ? adopterError : ''}</p>
+            <p style={{color:"red"}}>{adopterError ? adopterError : ''}</p>
             <Form onSubmit={handleAdopterSubmit}>
                 <input
                 type="text"
