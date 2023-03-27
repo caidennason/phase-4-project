@@ -12,11 +12,6 @@ class PetController < ApplicationController
         end
     end
 
-    # def show
-    #     pet = Pet.find(params[:id])
-    #     render json: pet
-    # end
-
     def create
         user = Rescue.find_by(id: session[:user_id])
         if user 

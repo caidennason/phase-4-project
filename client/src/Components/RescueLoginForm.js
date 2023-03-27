@@ -130,30 +130,3 @@ function RescueLoginForm(){
 }
 
 export default RescueLoginForm
-
-{/* <input
-                type="text"
-                value={rescueName}
-                onChange={handleRescueNameChange}
-                />
-                <input
-                type="text"
-                value={rescueBio}
-                onChange={handleRescueBioChange}
-                />
-                <input
-                type="text"
-                value={rescueLocation}
-                onChange={handleRescueLocationChange}
-                />
-                <input
-                type="text"
-                value={rescueImageUrl}
-                onChange={handleRescueImageUrlChange}
-                />
-                <input
-                type="text"
-                value={rescuePassword}
-                onChange={handleRescuePasswordChange}
-                />
-                <Button type="submit">Sign Up</Button> */}

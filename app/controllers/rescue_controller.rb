@@ -1,6 +1,6 @@
 class RescueController < ApplicationController
 
-    before_action :authorized, except: [:create]
+    before_action :authorized, except: [:create, :show]
 
     def index
         user = Rescue.find_by(id: session[:user_id])

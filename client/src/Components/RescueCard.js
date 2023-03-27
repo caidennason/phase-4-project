@@ -30,16 +30,6 @@ function RescueCard( {r, r: {id, name, image_url, bio, location}} ){
         setRescues(remainingRescues)
     }
 
-    // const handleLogout = (e) => {
-    //     logOut()
-    // }
-
-    // const handleDeleteLogout = (e) => {
-    //     e.preventDefault()
-    //     deleteRescue()
-    //     handleLogout()
-    // }
-
     let petNames = r.pets.map((p) => {
         return p.name
     }).join(', ')

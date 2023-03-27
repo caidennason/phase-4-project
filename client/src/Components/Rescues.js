@@ -18,8 +18,6 @@ function Rescues(){
         }
     }, [currentRescue, isLoading]);
 
-
-
     console.log(rescues)
     return(
         <div>
@@ -32,5 +30,3 @@ function Rescues(){
 }
 
 export default Rescues
-
- // https://i.imgur.com/fbVf9rh.jpg

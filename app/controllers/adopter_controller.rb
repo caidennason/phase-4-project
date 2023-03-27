@@ -12,25 +12,6 @@ class AdopterController < ApplicationController
         end
     end
 
-    # def create
-    #     user = Rescue.find_by(id: session[:user_id])
-    #     if user.nil?
-    #         render json: {error: "Not authorized. Sign in before adding adopters."}, status: :unauthorized
-    #     #     return
-    #     # end
-    #     else
-    #         adopter = Adopter.create!(adopter_params)
-    #         if adopter.valid?
-    #             render json: adopter, status: :ok
-    #         else
-    #             render json: {error: 'Make sure all fields are completed'}, status: :unprocessable_entity 
-    #         end
-    #     # else
-    #     #     render json: {error: "Not authorized"}, status: :unauthorized
-    #     # end
-    #     end
-    # end
-
     def create 
         user = Rescue.find_by(id: session[:user_id])
         if user 

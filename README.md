@@ -19,7 +19,7 @@
   - Pet
   - Rescue
 - Auth
-  - Rescues are the only ones who can log in and create, edit or delete the data. Rescues can delete pets that belong to them only. Rescues can edit pets though, as long as they are signed in. 
+  - Rescues are the only ones who can log in and create, edit or delete the data. Rescues can delete pets that belong to them only. Rescues can only edit their pets. If you need to change the ownership of a pet, that rescue needs to sign in to do it. 
 
 - Controllers
   - Adopter
@@ -34,5 +34,3 @@
 
 # Stretch
 - Full CRUD for all models
-- Better design
-- More advanced React hooks
