@@ -14,8 +14,16 @@ const RescuesProvider = ({ children }) => {
     // GET rescues
     const loadRescues = () => {
         fetch('/rescues')
-        .then(res => res.json())
-        .then(loadedRescues => setRescues(loadedRescues))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+                navigate('/')
+            } else {
+                res.json().then((loadedRescues) => setRescues(loadedRescues))
+            }
+        })
+        // .then(res => res.json())
+        // .then(loadedRescues => setRescues(loadedRescues))
     };
 
     // // GET show my rescue

@@ -1,12 +1,14 @@
 class AdopterController < ApplicationController
 
+    before_action :authorized
+
     def index
         user = Rescue.find_by(id: session[:user_id])
         if user
             adopters = Adopter.all
             render json: adopters
         else
-            render json: {error: "ERROR: You must sign in to view adopters."}
+            render json: {error: "ERROR: You must sign in to view adopters."}, status: :unauthorized
         end
     end
 

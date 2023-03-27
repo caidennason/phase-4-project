@@ -9,7 +9,7 @@ function AdopterCard({a, a: {id, name, bio, location}}){
 
     const adoptersPets = (a.pets.map((p) => {
         return p.name
-    }))
+    })).join(', ')
 
     function deleteAdopter(){
         fetch(`/adopters/${id}`, {

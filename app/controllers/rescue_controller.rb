@@ -1,10 +1,12 @@
 class RescueController < ApplicationController
 
+    before_action :authorized
+
     def index
         user = Rescue.find_by(id: session[:user_id])
         if user
             rescues = Rescue.all
-            render json: rescues, include: :pets
+            render json: rescues
         else
             render json: {error: "ERROR: You must be signed in to view rescues."}
         end

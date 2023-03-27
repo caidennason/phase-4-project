@@ -35,7 +35,7 @@ class PetController < ApplicationController
         user = Rescue.find_by(id: session[:user_id])
         if user
         pet = Pet.find_by(id: params[:id])
-        if pet && pet.rescue_id == user.id
+        if pet.rescue_id == user.id
             pet.destroy
             render json: { message: "Pet deleted successfully" }, status: :ok
         else
@@ -51,7 +51,7 @@ class PetController < ApplicationController
         if user 
             pet = Pet.find_by(id: params[:id])
             pet.update(pet_params)
-            if pet && pet.valid?
+            if pet.valid?
                 render json: pet, status: :created
             else
                 render json: { error: "ERROR: Make sure all edits are filled out."}, status: :unprocessable_entity

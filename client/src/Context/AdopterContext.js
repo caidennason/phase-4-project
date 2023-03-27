@@ -1,15 +1,25 @@
 import { createContext, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const AdoptersContext = createContext(null);
 
 const AdoptersProvider = ( {children} ) => {
     const [adopters, setAdopters] = useState([]);
     const [adopterError, setAdopterError] = useState(null);
+    const navigate = useNavigate()
 
     const loadAdopters = () => {
         fetch('/adopters')
-        .then(res => res.json())
-        .then(loadedAdopters => setAdopters(loadedAdopters))
+        .then((res) => {
+            if (!res.ok) {
+                res.json().then((err) => console.log(err))
+                navigate('/')
+            } else {
+                res.json().then((loadedAdopters) => setAdopters(loadedAdopters))
+            }
+        })
+        // .then(res => res.json())
+        // .then(loadedAdopters => setAdopters(loadedAdopters))
     };
 
     // add adopters
